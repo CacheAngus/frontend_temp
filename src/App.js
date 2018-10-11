@@ -15,6 +15,7 @@ class App extends Component {
         this.changeLastName = this.changeLastName.bind(this);
         this.changeCertificate = this.changeCertificate.bind(this);
         this.changeNotes = this.changeNotes.bind(this);
+        this.handleClicked = this.handleClicked.bind(this);
     }
 
   changeFirstName(e) {
@@ -48,7 +49,7 @@ changeNotes(e) {
     );
   }
   handleClicked(){
-    console.log("Last Name:" +this.state.lastname)
+    console.log("Last Name:" + this.state.lastNameValue)
 
   }
 }
