@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import InstitutionTable from './components/InstitutionTable/InstitutionTable';
 class App extends Component {
   constructor(props) {
         super(props);
@@ -10,10 +10,10 @@ class App extends Component {
             titleValue: "",
             detailValue: ""
         };
-        this.changeTitle = this.changeTitle.bind(this);
-        this.changeDetail = this.changeDetail.bind(this);
-        this.addTodo = this.addTodo.bind(this);
-        this.deleteTodo = this.deleteTodo.bind(this);
+        // this.changeTitle = this.changeTitle.bind(this);
+        // this.changeDetail = this.changeDetail.bind(this);
+        // this.addTodo = this.addTodo.bind(this);
+        // this.deleteTodo = this.deleteTodo.bind(this);
     }
 
   changeFirstName(e) {
@@ -33,7 +33,6 @@ class App extends Component {
                     Notes:<input type="text" value="title4"/>
                     <button>Add</button>
                 </div>
-
               </div>
     );
   }
