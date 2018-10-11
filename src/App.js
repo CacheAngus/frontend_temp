@@ -7,36 +7,55 @@ class App extends Component {
   constructor(props) {
         super(props);
         this.state = {
-            data: this.props.data,
-            titleValue: "",
-            detailValue: ""
+            firstNameValue: "",
+            lastNameValue: "",
+            certificateValue: "",
+            notesValue: ""
         };
-        // this.changeTitle = this.changeTitle.bind(this);
-        // this.changeDetail = this.changeDetail.bind(this);
-        // this.addTodo = this.addTodo.bind(this);
-        // this.deleteTodo = this.deleteTodo.bind(this);
+        this.changeFirstName = this.changeFirstName.bind(this);
+        this.changeLastName = this.changeLastName.bind(this);
+        this.changeCertificate = this.changeCertificate.bind(this);
+        this.changeNotes = this.changeNotes.bind(this);
     }
 
   changeFirstName(e) {
-    this.setState({detailValue: e.target.value});
+    this.setState({firstNameValue: e.target.value});
+}
+changeLastName(e) {
+  this.setState({lastNameValue: e.target.value});
+}
+changeCertificate(e) {
+  this.setState({certificateValue: e.target.value});
+}
+changeNotes(e) {
+  this.setState({notesValue: e.target.value});
 }
 
   render() {
     return (
       <div className="App">
                 <div>
-                    First Name:<input type="text" value="title"/>
+                    First Name:<input type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
 
-                    Last Name:<input type="text" value="title2"/>
+                    Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
                     <br/>
-                    Certificate:<input type="text" value="title3"/>
+                    Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
                     <br/>
-                    Notes:<input type="text" value="title4"/>
+                    Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
                     <button>Add</button>
                 </div>
               </div>
     );
   }
 }
+
+let style = {
+    formTitle: {
+        textDecoration: "line-through;"
+    },
+    formInput: {
+        border: "1px solid black;"
+    }
+};
 
 export default App;
