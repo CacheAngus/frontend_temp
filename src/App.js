@@ -34,6 +34,7 @@ changeNotes(e) {
   render() {
     return (
       <div className="App">
+<<<<<<< refs/remotes/origin/features/certTable
                 <form>
                     First Name:
                     <input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
@@ -47,6 +48,18 @@ changeNotes(e) {
                     <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
                     </br>
                 </form>
+=======
+                <div style={this.state.formStyle}>
+                    <FirstName />
+                    Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+                    <br/>
+                    <Certificate />
+                    <br/>
+                    <Notes />
+                    <br/>
+                    <button>Add</button>
+                </div>
+>>>>>>> turned first name, certificate and notes field into individual components
 
               </div>
     );
@@ -104,6 +117,72 @@ return (
           </div>
 );
 } 
+}
+
+class FirstName extends Component{
+  constructor(props) {
+        super(props);
+        this.state = {
+            firstNameValue: "",
+        };
+        this.changeFirstName = this.changeFirstName.bind(this);
+    }
+
+  changeFirstName(e) {
+    this.setState({firstNameValue: e.target.value});
+}
+render() {
+  return (
+            <div>
+                  First Name:<input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
+            </div>
+  );
+}
+
+}
+
+class Certificate extends Component{
+  constructor(props) {
+        super(props);
+        this.state = {
+            certificateValue: "",
+        };
+        this.changeCertificate = this.changeCertificate.bind(this);
+    }
+
+  changeCertificate(e) {
+    this.setState({certificateValue: e.target.value});
+}
+render() {
+  return (
+            <div>
+                  Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
+            </div>
+  );
+}
+
+}
+
+class Notes extends Component{
+  constructor(props) {
+        super(props);
+        this.state = {
+            notesValue: "",
+        };
+        this.changeNotes = this.changeNotes.bind(this);
+    }
+
+  changeNotes(e) {
+    this.setState({notesValue: e.target.value});
+}
+render() {
+  return (
+            <div>
+                  Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
+            </div>
+  );
+}
+
 }
 
 
