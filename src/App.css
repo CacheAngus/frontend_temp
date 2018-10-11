@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-size: 80px;
+  font-size: 60px;
 }
 
 .App-logo {
@@ -35,5 +35,5 @@
 input[type=text] {
 padding: 20px 10px;
 line-height: 28px;
-font-size: 80px;
+font-size: 60px;
 }
