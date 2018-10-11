@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import InstitutionTable from './components/InstitutionTable/InstitutionTable';
+import UserTable from './components/UserTable/UserTable';
 class App extends Component {
   constructor(props) {
         super(props);
