@@ -33,20 +33,73 @@ changeNotes(e) {
   render() {
     return (
       <div className="App">
-                <div style={this.state.formStyle}>
+                <form>
                     <FirstName />
-                    Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
-                    <br/>
+                    <LastName />
                     <Certificate />
                     <br/>
                     <Notes />
+                    <EthAddress/>
                     <br/>
-                    <button>Add</button>
-                </div>
+                    <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
+                </form>
 
               </div>
     );
   }
+  handleClicked(){
+    console.log("Last Name:" +this.state.lastname)
+
+  }
+}
+class LastName extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lastNameValue: "",
+    };
+
+    this.changeLastName = this.changeLastName.bind(this);
+  }
+
+changeLastName(e) {
+this.setState({lastNameValue: e.target.value});
+}
+render() {
+return (
+  <div className="LastName">
+            <div style={this.state.formStyle}>
+               Last Name:<input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+            </div>
+
+          </div>
+);
+}
+}
+class EthAddress extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      ethAddressValue: "",
+    };
+
+    this.changeEthAddress = this.changeEthAddress.bind(this);
+  }
+
+changeEthAddress(e) {
+this.setState({ethAddressValue: e.target.value});
+}
+render() {
+return (
+  <div className="EthAddress">
+            <div style={this.state.formStyle}>
+
+                EthAddress:<input type="text" value={this.state.ethAddressValue} onChange={this.changeEthAddress}/>
+            </div>
+
+          </div>
+);
+}
 }
 
 class FirstName extends Component{
