@@ -3,24 +3,38 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+        super(props);
+        this.state = {
+            data: this.props.data,
+            titleValue: "",
+            detailValue: ""
+        };
+        this.changeTitle = this.changeTitle.bind(this);
+        this.changeDetail = this.changeDetail.bind(this);
+        this.addTodo = this.addTodo.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
+    }
+
+  changeFirstName(e) {
+    this.setState({detailValue: e.target.value});
+}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+                <div>
+                    First Name:<input type="text" value="title"/>
+
+                    Last Name:<input type="text" value="title2"/>
+                    <br/>
+                    Certificate:<input type="text" value="title3"/>
+                    <br/>
+                    Notes:<input type="text" value="title4"/>
+                    <button>Add</button>
+                </div>
+
+              </div>
     );
   }
 }
