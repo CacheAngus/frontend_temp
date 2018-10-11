@@ -44,12 +44,16 @@ changeNotes(e) {
                     Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
                     <EthAddress/>
                     <br>
-                    <button>Add</button>
+                    <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
                     </br>
                 </form>
 
               </div>
     );
+  }
+  handleClicked(){
+    console.log("Last Name:" +this.state.lastname)
+    
   }
 }
 class LastName extends Component {
@@ -69,8 +73,7 @@ render() {
 return (
   <div className="LastName">
             <div style={this.state.formStyle}>
-                
-                Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+               <input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName}/>
             </div>
 
           </div>
@@ -103,33 +106,5 @@ return (
 } 
 }
 
-// //class Add extends Component{
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       clicked: false
 
-//     };
-   
-//     this.handleClicked = this.handleClicked.bind(this);
-//   }
-
-
-// handleClicked(e) {
-// this.setState({ethAddressValue: e.target.clicked});
-
-// e.target.clicked
-//   ? 
-
-// }
-// render() {
-// return (
-//   <div className="EthAddress">
-//     <form onClick={this.handleClicked}></form>
-                
-             
-//      </div>      
-// );
-// } 
-// }
 export default App;
