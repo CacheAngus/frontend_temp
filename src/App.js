@@ -33,7 +33,7 @@ changeNotes(e) {
   render() {
     return (
       <div className="App">
-                <div style={this.state.formStyle}>
+                <form>
                     First Name:
                     <input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
 
@@ -41,8 +41,11 @@ changeNotes(e) {
                     Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
                     <br/>
                     Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
+                    <EthAddress/>
+                    <br>
                     <button>Add</button>
-                </div>
+                    </br>
+                </form>
 
               </div>
     );
@@ -73,5 +76,59 @@ return (
 );
 }
 }
+class EthAddress extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      ethAddressValue: "",
+    };
+   
+    this.changeEthAddress = this.changeEthAddress.bind(this);
+  }
 
+changeEthAddress(e) {
+this.setState({ethAddressValue: e.target.value});
+}
+render() {
+return (
+  <div className="EthAddress">
+            <div style={this.state.formStyle}>
+                
+                Last Name:<input type="text" value={this.state.ethAddressValue} onChange={this.changeEthAddress}/>
+            </div>
+
+          </div>
+);
+} 
+}
+
+// //class Add extends Component{
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       clicked: false
+
+//     };
+   
+//     this.handleClicked = this.handleClicked.bind(this);
+//   }
+
+
+// handleClicked(e) {
+// this.setState({ethAddressValue: e.target.clicked});
+
+// e.target.clicked
+//   ? 
+
+// }
+// render() {
+// return (
+//   <div className="EthAddress">
+//     <form onClick={this.handleClicked}></form>
+                
+             
+//      </div>      
+// );
+// } 
+// }
 export default App;
