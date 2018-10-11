@@ -38,8 +38,7 @@ changeNotes(e) {
                     First Name:
                     <input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
 
-                    Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
-                    <br/>
+                    <LastName/>
                     Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
                     <br/>
                     Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
@@ -49,6 +48,30 @@ changeNotes(e) {
     );
   }
 }
+class LastName extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lastNameValue: "",
+    };
+   
+    this.changeLastName = this.changeLastName.bind(this);
+  }
 
+changeLastName(e) {
+this.setState({lastNameValue: e.target.value});
+}
+render() {
+return (
+  <div className="LastName">
+            <div style={this.state.formStyle}>
+                
+                Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+            </div>
+
+          </div>
+);
+}
+}
 
 export default App;
