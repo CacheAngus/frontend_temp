@@ -34,8 +34,9 @@ changeNotes(e) {
   render() {
     return (
       <div className="App">
-                <div>
-                    First Name:<input type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
+                <div style={this.state.formStyle}>
+                    First Name:
+                    <input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
 
                     Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
                     <br/>
@@ -49,13 +50,5 @@ changeNotes(e) {
   }
 }
 
-let style = {
-    formTitle: {
-        textDecoration: "line-through;"
-    },
-    formInput: {
-        border: "1px solid black;"
-    }
-};
 
 export default App;
