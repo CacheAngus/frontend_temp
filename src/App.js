@@ -51,7 +51,7 @@ changeNotes(e) {
     );
   }
   handleClicked(){
-    console.log("Last Name:" +this.state.lastname)
+    console.log("Last Name:" +this.state.lastNameValue)
     
   }
 }
