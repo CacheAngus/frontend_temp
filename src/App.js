@@ -6,10 +6,7 @@ class App extends Component {
   constructor(props) {
         super(props);
         this.state = {
-            firstNameValue: "",
-            lastNameValue: "",
-            certificateValue: "",
-            notesValue: ""
+          appBackground: style.backgroundColor
         };
         this.handleClicked = this.handleClicked.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,13 +14,13 @@ class App extends Component {
 handleSubmit(e){
   alert('The form was submitted:' +this.state.value);
   event.preventDefault();
-}
+};
   
 
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={this.state.appBackground}>
                 <form onSubmit={this.handleSubmit}>
                     <FirstName />
                     <LastName />
@@ -37,12 +34,14 @@ handleSubmit(e){
 
               </div>
     );
-    } 
-}
-  handleClicked(){
-    console.log("Last Name:" +this.state.lastNameValue);
-    
-}
+    } ;
+
+handleClicked(){
+    console.log("Last Name:" + this.state.lastNameValue)
+
+};
+};
+
 
 class LastName extends Component {
   constructor(props) {
@@ -56,7 +55,7 @@ class LastName extends Component {
 
 changeLastName(e) {
 this.setState({lastNameValue: e.target.value});
-}
+};
 render() {
 return (
   <div className="LastName">
@@ -91,8 +90,8 @@ return (
 
           </div>
 );
-}
-}
+};
+};
 
 class FirstName extends Component{
   constructor(props) {
@@ -112,9 +111,9 @@ render() {
                   First Name:<input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
             </div>
   );
-}
+};
 
-}
+};
 
 class Certificate extends Component{
   constructor(props) {
@@ -127,16 +126,16 @@ class Certificate extends Component{
 
   changeCertificate(e) {
     this.setState({certificateValue: e.target.value});
-}
+};
 render() {
   return (
             <div>
                   Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
             </div>
   );
-}
+};
 
-}
+};
 
 class Notes extends Component{
   constructor(props) {
@@ -149,16 +148,21 @@ class Notes extends Component{
 
   changeNotes(e) {
     this.setState({notesValue: e.target.value});
-}
+};
 render() {
   return (
             <div>
                   Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
             </div>
   );
-}
+};
+
+};
+ 
+let style ={
+  overallForm: {
+   backgroundColor: 'grey',
+  }
 
 }
-
-
 export default App;
