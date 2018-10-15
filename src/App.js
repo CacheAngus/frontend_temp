@@ -22,6 +22,9 @@ handleSubmit(e){
     return (
       <div className="App" style={this.state.appBackground}>
                 <form onSubmit={this.handleSubmit}>
+                  <label>
+                    Create Certificate
+                    {/*textare value = this.state and then all of the component*/}
                     <FirstName />
                     <LastName />
                     <Certificate />
@@ -29,19 +32,20 @@ handleSubmit(e){
                     <Notes />
                     <EthAddress/>
                     <br/>
+                   {/*} <label>
+                      Add Certificate
                     <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
+    </label>*/}
+                </label>  
+                <input type = "submit" value="Create Certificate" />
                 </form>
 
               </div>
     );
     } ;
 
-handleClicked(){
-    console.log("Last Name:" + this.state.lastNameValue)
 
 };
-};
-
 
 class LastName extends Component {
   constructor(props) {
@@ -60,7 +64,11 @@ render() {
 return (
   <div className="LastName">
             <div style={this.state.formStyle}>
-               Last Name:<input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+              <label>
+                Last Name   
+                <textarea defaultValue="Doe" type="text"/>          
+            </label>
+            <input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName}/>
             </div>
 
           </div>
@@ -130,7 +138,15 @@ class Certificate extends Component{
 render() {
   return (
             <div>
-                  Certificate:<input type="text" value={this.state.certificateValue} onChange={this.changeCertificate}/>
+              <label>
+                  Certificate:
+                  <select value={this.state.value} onChange={this.changeCertificate}>
+                    <option value="bachelor">Bachelor Degree</option>
+                    <option value="course">Course</option>
+                    <option value="govid">Government ID</option>
+                  </select>
+                  </label>
+                  <input type="text" value ="Certificate"/>
             </div>
   );
 };
