@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import InstitutionTable from './components/InstitutionTable/InstitutionTable';
 import UserTable from './components/UserTable/UserTable';
@@ -22,6 +22,7 @@ handleSubmit(e){
   }
   alert('Form Submitted');
   e.preventDefault();
+  alert('Form Submitted!')
 };
   
 
@@ -45,9 +46,10 @@ changeNotes(e) {
                   <label id="certificate">
                     Create Certificate
                     {/*textare value = this.state and then all of the component*/}
+                   <view style={style.row}>
                     <FirstName />
-                    Last Name:<input type="text" value={this.state.lastNameValue} onChange={this.changeLastName}/>
-                    <br/>
+                    <LastName /> 
+                    </view>
                     <Certificate />
                     <br/>
                     <Notes />
@@ -201,7 +203,17 @@ render() {
   );
 }
 
-}
+};
+ 
+let style ={
+  overallForm: {
+   backgroundColor: 'grey',
+  },
+  row: {
+    flex:1,
+    flexDirection: "row"
+
+  }
 
 
 export default App;
