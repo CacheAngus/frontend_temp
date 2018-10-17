@@ -8,12 +8,16 @@ class App extends Component {
         this.state = {
           appBackground: style.backgroundColor
         };
-        this.handleClicked = this.handleClicked.bind(this);
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 handleSubmit(e){
-  alert('The form was submitted:' +this.state.value);
-  event.preventDefault();
+  if (!e.target.checkValidity()) {
+    // form is invalid! so we do nothing
+    return;
+  }
+  alert('Form Submitted');
+  e.preventDefault();
 };
   
 
@@ -22,7 +26,7 @@ handleSubmit(e){
     return (
       <div className="App" style={this.state.appBackground}>
                 <form onSubmit={this.handleSubmit}>
-                  <label>
+                  <label id="certificate">
                     Create Certificate
                     {/*textare value = this.state and then all of the component*/}
                     <FirstName />
@@ -37,7 +41,7 @@ handleSubmit(e){
                     <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
     </label>*/}
                 </label>  
-                <input type = "submit" value="Create Certificate" />
+                <input type = "submit" name="certificate"  value="Create Certificate" />
                 </form>
 
               </div>
@@ -65,10 +69,9 @@ return (
   <div className="LastName">
             <div style={this.state.formStyle}>
               <label>
-                Last Name   
-                <textarea defaultValue="Doe" type="text"/>          
+                Last Name:
             </label>
-            <input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName}/>
+            <input type="text" name="lastname" value={this.state.lastNameValue} onChange={this.changeLastName} required/>
             </div>
 
           </div>
@@ -92,8 +95,10 @@ render() {
 return (
   <div className="EthAddress">
             <div style={this.state.formStyle}>
-
-                EthAddress:<input type="text" value={this.state.ethAddressValue} onChange={this.changeEthAddress}/>
+              <label>
+                EthAddress:
+                </label>
+                <input type="text" name="ethadd" value={this.state.ethAddressValue} onChange={this.changeEthAddress} required/>
             </div>
 
           </div>
@@ -116,7 +121,10 @@ class FirstName extends Component{
 render() {
   return (
             <div>
-                  First Name:<input  type="text" value={this.state.firstNameValue} onChange={this.changeFirstName}/>
+              <label>
+                  First Name:
+                  </label>
+                  <input  type="text" name="firstname" value={this.state.firstNameValue} onChange={this.changeFirstName} required/>
             </div>
   );
 };
@@ -140,13 +148,14 @@ render() {
             <div>
               <label>
                   Certificate:
-                  <select value={this.state.value} onChange={this.changeCertificate}>
+                  <select>
+                  <option value="none">  </option>
                     <option value="bachelor">Bachelor Degree</option>
                     <option value="course">Course</option>
                     <option value="govid">Government ID</option>
                   </select>
                   </label>
-                  <input type="text" value ="Certificate"/>
+                 
             </div>
   );
 };
@@ -168,7 +177,10 @@ class Notes extends Component{
 render() {
   return (
             <div>
-                  Notes:<input type="text" value={this.state.notesValue} onChange={this.changeNotes}/>
+              <label>
+                  Notes:
+                  </label>
+                  <input type="text" name = "notes" value={this.state.notesValue} onChange={this.changeNotes}/>
             </div>
   );
 };
