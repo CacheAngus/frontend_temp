@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +18,7 @@ handleSubmit(e){
   }
   alert('Form Submitted');
   e.preventDefault();
+  alert('Form Submitted!')
 };
   
 
@@ -29,8 +30,10 @@ handleSubmit(e){
                   <label id="certificate">
                     Create Certificate
                     {/*textare value = this.state and then all of the component*/}
+                   <view style={style.row}>
                     <FirstName />
-                    <LastName />
+                    <LastName /> 
+                    </view>
                     <Certificate />
                     <br/>
                     <Notes />
@@ -190,6 +193,11 @@ render() {
 let style ={
   overallForm: {
    backgroundColor: 'grey',
+  },
+  row: {
+    flex:1,
+    flexDirection: "row"
+
   }
 
 }
