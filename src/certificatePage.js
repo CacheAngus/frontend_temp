@@ -14,11 +14,7 @@ class showingApp extends Component {
 render() {
     return (
     <view style = {style.row}>
-        <FirstName />
-        <LastName />
-        <Certificate />
-        <Notes />
-        <EthAddress />
+
         </view>
     );
 
