@@ -18,7 +18,7 @@ handleSubmit(e){
   }
   alert('Form Submitted');
   e.preventDefault();
-  alert('Form Submitted!')
+
 };
   
 
