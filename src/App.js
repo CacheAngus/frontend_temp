@@ -4,7 +4,8 @@ import './App.css';
 import InstitutionTable from './components/InstitutionTable/InstitutionTable';
 import UserTable from './components/UserTable/UserTable';
 import NavigationBar from './components/Navigation/NavigationBar';
-import { BrowserRouter } from 'react-router-dom'
+import { Router, Route, IndexRoute} from 'react-router'
+import { BrowserRouter} from 'react-router-dom'
 
 
 class App extends Component {
@@ -48,6 +49,7 @@ changeNotes(e) {
       <BrowserRouter>
       <div className="App" style={this.state.appBackground}>
       <NavigationBar />
+      <Route path="/view" name="view" component={UserTable}></Route>
 
                 <form onSubmit={this.handleSubmit}>
                   <label id="certificate">
