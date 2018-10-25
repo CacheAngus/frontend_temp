@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-//import LastName from './certificatePage.js';
-//import FirstName from './certificatePage.js';
-//import Notes from './certificatePage.js';
-//import Certificate from './certificatePage.js';
-//import EthAddress from './certificatePage.js';
+import InstitutionTable from './components/InstitutionTable/InstitutionTable';
+import UserTable from './components/UserTable/UserTable';
+import NavigationBar from './components/Navigation/NavigationBar';
+import { Router, Route, IndexRoute} from 'react-router'
+import { BrowserRouter} from 'react-router-dom'
 
-const axios = require('axios');
 
 class App extends Component {
   constructor(props) {
         super(props);
         this.state = {
-          appBackground: style.backgroundColor
+            firstNameValue: "",
+            lastNameValue: "",
+            certificateValue: "",
+            notesValue: ""
         };
-        
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 handleSubmit(e){
@@ -24,52 +26,61 @@ handleSubmit(e){
     return;
   }
   alert('Form Submitted');
-  //does this even go in here idk, probably should add in error catching
-  axios({
-    method: 'post',
-    //figure out where to actually post the info
-    url: './posting',
-    data: {
-      lastNameValue: this.state.lastNameValue,
-      firstNameValue: this.state.firstNameValue,
-      ethAddressValue: this.state.ethAddressValue,
-      certificateValue: this.state.certificateValue,
-      notesValue: this.state.notesValue
-       }
-  });
   e.preventDefault();
-  
-
+  alert('Form Submitted!')
 };
-  
+
+
+  changeFirstName(e) {
+    this.setState({firstNameValue: e.target.value});
+}
+changeLastName(e) {
+  this.setState({lastNameValue: e.target.value});
+}
+changeCertificate(e) {
+  this.setState({certificateValue: e.target.value});
+}
+changeNotes(e) {
+  this.setState({notesValue: e.target.value});
+}
 
 
   render() {
     return (
-      <div className="App" style={style.row}>
-      <view style={style.row}>
+      <BrowserRouter>
+      <div>
+      <NavigationBar />
+      <div className="App" style={this.state.appBackground}>
+      <div>
+      <Route path="/view" name="view" component={UserTable}></Route>
+      </div>
                 <form onSubmit={this.handleSubmit}>
-                  <label id="title">
+                  <label id="certificate">
                     Create Certificate
-                    
-                   
+                    {/*textare value = this.state and then all of the component*/}
+                   <view style={style.row}>
                     <FirstName />
-                    <LastName /> 
-                   
+                    <LastName />
+                    </view>
                     <Certificate />
                     <br/>
                     <Notes />
-                    <EthAddress/>
                     <br/>
-                    </label>  
-                <input type = "submit" id="certificate"  value="Create Certificate" />
+                   {/*} <label>
+                      Add Certificate
+                    <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
+    </label>*/}
+                </label>
+                <input type = "submit" name="certificate"  value="Create Certificate" />
                 </form>
-                </view>
-              </div>
+              </div></div>
+              </BrowserRouter>
+
     );
     } ;
-};
 
+
+};
 
 class LastName extends Component {
   constructor(props) {
@@ -83,11 +94,11 @@ class LastName extends Component {
 
 changeLastName(e) {
 this.setState({lastNameValue: e.target.value});
-};
+}
 render() {
 return (
   <div className="LastName">
-            <div>
+            <div style={this.state.formStyle}>
               <label>
                 Last Name:
             </label>
@@ -114,7 +125,7 @@ this.setState({ethAddressValue: e.target.value});
 render() {
 return (
   <div className="EthAddress">
-            <div >
+            <div style={this.state.formStyle}>
               <label>
                 EthAddress:
                 </label>
@@ -123,8 +134,8 @@ return (
 
           </div>
 );
-};
-};
+}
+}
 
 class FirstName extends Component{
   constructor(props) {
@@ -144,12 +155,12 @@ render() {
               <label>
                   First Name:
                   </label>
-                  <input  type="text" id="firstname" value={this.state.firstNameValue} onChange={this.changeFirstName} required/>
+                  <input  type="text" name="firstname" value={this.state.firstNameValue} onChange={this.changeFirstName} required/>
             </div>
   );
-};
+}
 
-};
+}
 
 class Certificate extends Component{
   constructor(props) {
@@ -162,7 +173,7 @@ class Certificate extends Component{
 
   changeCertificate(e) {
     this.setState({certificateValue: e.target.value});
-};
+}
 render() {
   return (
             <div>
@@ -175,12 +186,12 @@ render() {
                     <option value="govid">Government ID</option>
                   </select>
                   </label>
-                 
+
             </div>
   );
-};
+}
 
-};
+}
 
 class Notes extends Component{
   constructor(props) {
@@ -193,7 +204,7 @@ class Notes extends Component{
 
   changeNotes(e) {
     this.setState({notesValue: e.target.value});
-};
+}
 render() {
   return (
             <div>
@@ -203,11 +214,9 @@ render() {
                   <input type="text" name = "notes" value={this.state.notesValue} onChange={this.changeNotes}/>
             </div>
   );
-};
+}
 
 };
-//trying to post the information somewhere
-
 
 let style ={
   overallForm: {
@@ -216,8 +225,8 @@ let style ={
   row: {
     flex:1,
     flexDirection: "row"
-
+}
   }
 
-}
+
 export default App;
