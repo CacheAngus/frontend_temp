@@ -5,7 +5,7 @@ import axios from 'axios';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import Form from './FormPage.js';
-//import InstitutionTable from './components/InstitutionTable/InstitutionTable';
+import InstitutionTable from './components/InstitutionTable/InstitutionTable';
 //import UserTable from './components/UserTable/UserTable';
 //import CertifaceTblPage
 
@@ -63,10 +63,11 @@ handleSubmit(e){
                     <Notes />
                     <EthAddress/>
                     <br/>
+
                     </label>  
                 <input type = "submit" id="certificate"  value="Create Certificate" />
                 </form>
-          
+                <div> <InstitutionTable/></div>
                 </view>
               </div>
     );
@@ -74,7 +75,7 @@ handleSubmit(e){
 };
 
 
-export class LastName extends Component {
+class LastName extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,7 +102,7 @@ return (
 );
 }
 }
-export class EthAddress extends Component{
+class EthAddress extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -129,7 +130,7 @@ return (
 };
 };
 
-export class FirstName extends Component{
+class FirstName extends Component{
   constructor(props) {
         super(props);
         this.state = {
@@ -154,7 +155,7 @@ render() {
 
 };
 
-export class Certificate extends Component{
+class Certificate extends Component{
   constructor(props) {
         super(props);
         this.state = {
@@ -185,7 +186,7 @@ render() {
 
 };
 
-export class Notes extends Component{
+class Notes extends Component{
   constructor(props) {
         super(props);
         this.state = {
@@ -223,5 +224,4 @@ let style ={
   }
 
 }
-
 export default App;

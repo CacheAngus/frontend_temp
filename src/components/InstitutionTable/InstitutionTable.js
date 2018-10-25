@@ -19,7 +19,7 @@ import Certificate from "./App.js";
 class InstitutionTable extends Component {
 
 
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       
@@ -29,46 +29,89 @@ class InstitutionTable extends Component {
             firstName: 'Nicholas',
             lastName: 'Chan',
             certificate: 'Bachelor of Commerce',
-            notes: 'this guy is a g'
+            notes: 'this guy is a g',
+            ethAdd: "1234"
       }
     ]
     };
+    let col = [
+      "firstname",
+      "lastname",
+      "certificate",
+      "notes",
+      "ethAdd"
+  ];
+  let tHead = [
+      "First Name",
+      "Last Name",
+      "Certificate",
+      "Notes",
+      "Etherium Address"
+  ];
   }
 
  
   render() {
     const { data } = this.state;
     return (
-      
-      <div>
-        
-        <ReactTable
-          data={data}
-          columns={[{
-              Header: 'Certificate No',
-              accessor: 'certificateNo' // String-based value accessors!
-            }, {
-              Header: 'First Name',
-              accessor: 'firstName',
-              Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-            }, {
-              Header: 'Last Name',
-              accessor: 'lastName'
-            },
-            {
-              Header: 'Certificate',
-              accessor: 'certificate'
-            },
-            {
-              Header: 'Notes',
-              accessor: 'notes'
-            }]}
-          defaultPageSize={10}
-          className="-striped -highlight"
-        />
-        <br />
-      </div>
+           
+        <SortableTbl
+          tblData={data}
+          tHead = {tHead}
+          dKey={col}
+          />
     );
   }
 }
+
+
+/*let Mydata=[
+  {
+      "firstname": "Cache",
+      "lastname": "A",
+      "certificate": "Bachelor",
+      "notes": " ",
+      "ethAdd": "1234"
+  },
+  {
+      "firstname": "Jamie",
+      "lastname": "L",
+      "certificate": "Bachelor",
+      "notes": " ",
+      "ethAdd": "124"  
+  },
+  {
+      "firstname": "Nick",
+      "lastname": "C",
+      "certificate": "Bachelor",
+      "notes": " ",
+      "ethAdd": "3334"
+  },
+]
+
+const CertificateTblPage = (props) =>{
+  
+  let col = [
+      "firstname",
+      "lastname",
+      "certificate",
+      "notes",
+      "ethAdd"
+  ];
+  let tHead = [
+      "First Name",
+      "Last Name",
+      "Certificate",
+      "Notes",
+      "Etherium Address"
+  ];
+
+  return (
+      <SortableTbl tblData={Mydata}
+      tHead = {tHead}
+      dKey={col}
+      />
+  );
+}; */
+
 export default InstitutionTable;
