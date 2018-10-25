@@ -47,10 +47,12 @@ changeNotes(e) {
   render() {
     return (
       <BrowserRouter>
-      <div className="App" style={this.state.appBackground}>
+      <div>
       <NavigationBar />
+      <div className="App" style={this.state.appBackground}>
+      <div>
       <Route path="/view" name="view" component={UserTable}></Route>
-
+      </div>
                 <form onSubmit={this.handleSubmit}>
                   <label id="certificate">
                     Create Certificate
@@ -70,7 +72,7 @@ changeNotes(e) {
                 </label>
                 <input type = "submit" name="certificate"  value="Create Certificate" />
                 </form>
-              </div>
+              </div></div>
               </BrowserRouter>
 
     );

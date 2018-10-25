@@ -5,12 +5,16 @@ class NavigationBar extends Component{
   render(){
   return(
 <div class="NavigationBar">
-        <Link to="/view">
+<div class="NavigationLinks">
+        <Link to="/view"
+        style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
         View
         </Link>
-        <Link to="/create">
+        <Link to="/create"
+        style={{ textDecoration: 'none',paddingRight:'10px', color:'black'}}>
   Create
         </Link>
+        </div>
 </div>
   );
 }
