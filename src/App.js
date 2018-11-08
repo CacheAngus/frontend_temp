@@ -4,11 +4,11 @@ import './App.css';
 import axios from 'axios';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import Form from './FormPage.js';
+//import Form from './components/FormPage.js';
 import InstitutionTable from './components/InstitutionTable/InstitutionTable';
 //import UserTable from './components/UserTable/UserTable';
 //import CertifaceTblPage
-
+import CompanyLogin from './components/Login/loginCompany';
 
 
 class App extends Component {
@@ -67,8 +67,10 @@ handleSubmit(e){
                     </label>  
                 <input type = "submit" id="certificate"  value="Create Certificate" />
                 </form>
-                <div> <InstitutionTable/></div>
+                
                 </view>
+                <div> <InstitutionTable/></div>
+                <div> <CompanyLogin/> </div>
               </div>
     );
     } ;
