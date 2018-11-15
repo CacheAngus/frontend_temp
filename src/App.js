@@ -69,7 +69,7 @@ handleSubmit(e){
                 </form>
                 
                 </view>
-                <div> <InstitutionTable/></div>
+                
                 <div> <CompanyLogin/> </div>
               </div>
     );

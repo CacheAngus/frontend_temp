@@ -72,6 +72,7 @@ let tHead = [
 
 
 //other filterable table
+
 class InstitutionTable2 extends Component {
 
 
