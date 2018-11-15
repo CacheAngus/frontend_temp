@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-//import LastName from './certificatePage.js';
-//import FirstName from './certificatePage.js';
-//import Notes from './certificatePage.js';
-//import Certificate from './certificatePage.js';
-//import EthAddress from './certificatePage.js';
+import axios from 'axios';
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+//import Form from './components/FormPage.js';
+import InstitutionTable from './components/InstitutionTable/InstitutionTable';
+//import UserTable from './components/UserTable/UserTable';
+//import CertifaceTblPage
+import CompanyLogin from './components/Login/loginCompany';
 
-const axios = require('axios');
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +29,7 @@ handleSubmit(e){
   //does this even go in here idk, probably should add in error catching
   axios({
     method: 'post',
-    //figure out where to actually post the info
+    //figure out where to actually post the info and how to post it
     url: './posting',
     data: {
       lastNameValue: this.state.lastNameValue,
@@ -61,10 +63,14 @@ handleSubmit(e){
                     <Notes />
                     <EthAddress/>
                     <br/>
+
                     </label>  
                 <input type = "submit" id="certificate"  value="Create Certificate" />
                 </form>
+                
                 </view>
+                
+                <div> <CompanyLogin/> </div>
               </div>
     );
     } ;
