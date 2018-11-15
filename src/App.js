@@ -13,7 +13,7 @@ import UserTable from './components/UserTable/UserTable';
 import NavigationBar from './components/Navigation/NavigationBar';
 import { Router, Route, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
-
+import {database} from './firebaseConfig'
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +24,11 @@ class App extends Component {
             certificateValue: "",
             notesValue: ""
         };
-
+        database.ref('users/' + '1234').set({
+    username: "testing", //test
+    email: "test",
+    profile_picture : "test"
+  });
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
