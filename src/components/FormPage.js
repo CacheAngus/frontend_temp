@@ -56,7 +56,7 @@ export class Form extends Component {
                       <EthAddress/>
                       <br/>
                       </label>  
-                  <input type = "submit" id="certificate"  value="Create Certificate" />
+                  <input style={styles.submitBut} type = "submit" id="certificate"  value="Create Certificate" />
                   </form>
             
                   </view>
@@ -212,6 +212,14 @@ export class Form extends Component {
   
     }
   
+  }
+
+  const styles={
+    submitBut: {
+      
+      adjustsFontSizeToFit: 'true'
+      
+    }
   }
 
   export default Form;

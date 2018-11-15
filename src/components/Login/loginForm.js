@@ -6,15 +6,15 @@ class loginForm extends Component {
         return (
             <View style={styles.container}>
             <TextInput
-            placeholder="username"
+            placeholder="Email"
             placeholderTextColor="rgb(48,48,48)"
             style={styles.input}
             />
             <TextInput
-            placeholder="password"
+            placeholder="Password"
             placeholderTextColor="rgb(48,48,48)"
-            secureTextEntry
             style={styles.input}
+            secureTextEntry
             />
             <TouchableOpacity style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>Login</Text>
