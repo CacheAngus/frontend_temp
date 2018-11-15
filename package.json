@@ -12,6 +12,7 @@
     "react-art": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
+    "react-facebook-login": "^4.1.1",
     "react-filterable-table": "^0.3.431",
     "react-native": "^0.57.4",
     "react-native-web": "^0.9.6",
