@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+//import Form from './components/FormPage.js';
 import InstitutionTable from './components/InstitutionTable/InstitutionTable';
+//import UserTable from './components/UserTable/UserTable';
+//import CertifaceTblPage
+import CompanyLogin from './components/Login/loginCompany';
 import UserTable from './components/UserTable/UserTable';
 import NavigationBar from './components/Navigation/NavigationBar';
 import { Router, Route, IndexRoute} from 'react-router'
@@ -17,6 +24,7 @@ class App extends Component {
             certificateValue: "",
             notesValue: ""
         };
+        
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -26,6 +34,19 @@ handleSubmit(e){
     return;
   }
   alert('Form Submitted');
+  //does this even go in here idk, probably should add in error catching
+  axios({
+    method: 'post',
+    //figure out where to actually post the info and how to post it
+    url: './posting',
+    data: {
+      lastNameValue: this.state.lastNameValue,
+      firstNameValue: this.state.firstNameValue,
+      ethAddressValue: this.state.ethAddressValue,
+      certificateValue: this.state.certificateValue,
+      notesValue: this.state.notesValue
+       }
+  });
   e.preventDefault();
   alert('Form Submitted!')
 };
@@ -66,6 +87,9 @@ changeNotes(e) {
                     <br/>
                     <Notes />
                     <br/>
+
+                    </label>  
+                <input type = "submit" id="certificate"  value="Create Certificate" />
                    {/*} <label>
                       Add Certificate
                     <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
@@ -73,6 +97,11 @@ changeNotes(e) {
                 </label>
                 <input type = "submit" name="certificate"  value="Create Certificate" />
                 </form>
+                
+                </view>
+                
+                <div> <CompanyLogin/> </div>
+              </div>
               </div></div>
               </BrowserRouter>
 
