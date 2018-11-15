@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, TextInput, TouchableOpacity, Text} from 'react-native';
 
-class LoginForm extends Component {
+class loginForm extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -45,3 +45,5 @@ buttonText: {
     fontWeight: '700'
 }
 });
+
+export default loginForm;
