@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import {Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import './loginCompany.css';
 import { StyleSheet, View, Image, Text } from 'react-native-web';
-import LoginForm from './LoginForm';
+import LoginForm from './loginForm';
 
 
 class CompanyLogin extends Component {
@@ -24,6 +24,7 @@ class CompanyLogin extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: 'black',
         flex: 1,
         },
         logoConstiner: {
