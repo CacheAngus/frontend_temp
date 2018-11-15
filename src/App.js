@@ -24,7 +24,7 @@ class App extends Component {
             certificateValue: "",
             notesValue: ""
         };
-        
+
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -88,20 +88,17 @@ changeNotes(e) {
                     <Notes />
                     <br/>
 
-                    </label>  
+                    </label>
                 <input type = "submit" id="certificate"  value="Create Certificate" />
                    {/*} <label>
                       Add Certificate
                     <button type="button" onClick={this.handleClicked}>Add Cerificate</button>
     </label>*/}
-                </label>
+
                 <input type = "submit" name="certificate"  value="Create Certificate" />
                 </form>
-                
-                </view>
-                
+
                 <div> <CompanyLogin/> </div>
-              </div>
               </div></div>
               </BrowserRouter>
 

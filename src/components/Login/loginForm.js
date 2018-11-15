@@ -24,6 +24,9 @@ class LoginForm extends Component {
     }
 }
 
+
+export default LoginForm
+
 const styles = StyleSheet.create({
     container: {
         padding:20
