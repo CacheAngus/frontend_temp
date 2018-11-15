@@ -24,6 +24,9 @@ class loginForm extends Component {
     }
 }
 
+
+export default loginForm;
+
 const styles = StyleSheet.create({
     container: {
         padding:20
@@ -45,5 +48,3 @@ buttonText: {
     fontWeight: '700'
 }
 });
-
-export default loginForm;

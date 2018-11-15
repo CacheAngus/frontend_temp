@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import {Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import './loginCompnay.css';
+import './loginCompany.css';
 import { StyleSheet, View, Image, Text } from 'react-native-web';
 import LoginForm from './loginForm';
 
