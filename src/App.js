@@ -18,19 +18,14 @@ import {database} from './firebaseConfig'
 class App extends Component {
   constructor(props) {
         super(props);
-        this.state = {
-            firstNameValue: "",
-            lastNameValue: "",
-            certificateValue: "",
-            notesValue: ""
-        };
+        this.state = {};
         database.ref('users/' + '1234').set({
     username: "testing", //test
     email: "test",
     profile_picture : "test"
   });
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
   render() {
     return (
