@@ -13,25 +13,47 @@ import UserTable from './components/UserTable/UserTable';
 import NavigationBar from './components/Navigation/NavigationBar';
 import { Router, Route, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
-import {database} from './firebaseConfig'
+
+// Login Flow
+import firebase from 'firebase'
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 class App extends Component {
   constructor(props) {
-        super(props);
-        this.state = {
-            firstNameValue: "",
-            lastNameValue: "",
-            certificateValue: "",
-            notesValue: ""
-        };
-        database.ref('users/' + '1234').set({
-    username: "testing", //test
-    email: "test",
-    profile_picture : "test"
-  });
+    super(props);
+    this.state = {
+      firstNameValue: "",
+      lastNameValue: "",
+      certificateValue: "",
+      notesValue: "",
+      // isSignedIn: false,
+    };
+    firebase.database().ref('users/' + '1234').set({
+      username: "testing", //test
+      email: "test",
+      profile_picture : "test"
+    });
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+  state = { isSignedIn: false }
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    ],
+    callbacks: {
+      signInSuccess: () => false
     }
+  }
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })
+      console.log("user", user)
+    })
+  }
+
 handleSubmit(e){
   if (!e.target.checkValidity()) {
     // form is invalid! so we do nothing
@@ -69,7 +91,6 @@ changeNotes(e) {
   this.setState({notesValue: e.target.value});
 }
 
-
   render() {
     return (
       <BrowserRouter>
@@ -79,6 +100,22 @@ changeNotes(e) {
       <div>
       <Route path="/view" name="view" component={UserTable}></Route>
       </div>
+        {this.state.isSignedIn ? (
+          <span>
+            <div>Signed In!</div>
+            <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
+            <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+            <img
+              alt="profile picture"
+              src={firebase.auth().currentUser.photoURL}
+            />
+          </span>
+        ) : (
+          <StyledFirebaseAuth
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebase.auth()}
+          />
+        )}
                 <form onSubmit={this.handleSubmit}>
                   <label id="certificate">
                     Create Certificate
