@@ -18,7 +18,7 @@ import {MenuItem, Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap';
   )}
 }
  */
-class NavigationBar extends Component {
+class NavigationBar extends Component {S
   render(){
     return(
   
