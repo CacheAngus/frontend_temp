@@ -2,12 +2,14 @@
 
 # dependencies
 /node_modules
+/semantic
 
 # testing
 /coverage
 
 # production
 /build
+/semantic
 
 # misc
 .DS_Store
@@ -21,7 +23,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 firebaseCredentials.json
-semantic
 package-lock.json
 
 src/firebaseCredentials\.json

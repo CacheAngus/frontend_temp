@@ -8,9 +8,9 @@ import "react-table/react-table.css";
 //import SortableTbl from "react-sort-search-table";
 import FilterableTable from "react-filterable-table"
 //gotta do the acios thing when we get the api
-/*const FilterableTable = require('react-filterable-table');
 
-class InstitutionTable extends Component {
+
+/*class InstitutionTable extends Component {
 
 
   constructor(props) {
@@ -73,6 +73,7 @@ let tHead = [
 
 //other filterable table
 
+
 class InstitutionTable2 extends Component {
 
 
@@ -95,6 +96,41 @@ class InstitutionTable2 extends Component {
         notes: 'nope',
         ethAdd: "1234"
   },
+  {
+    firstName: 'cache',
+    lastName: 'angus',
+    certificate: 'Bachelor of Commerce',
+    notes: 'nope',
+    ethAdd: "1234"
+},
+{
+  firstName: 'cache',
+  lastName: 'angus',
+  certificate: 'Bachelor of Commerce',
+  notes: 'nope',
+  ethAdd: "1234"
+},
+{
+  firstName: 'cache',
+  lastName: 'angus',
+  certificate: 'Bachelor of Commerce',
+  notes: 'nope',
+  ethAdd: "1234"
+},
+{
+  firstName: 'cache',
+  lastName: 'angus',
+  certificate: 'Bachelor of Commerce',
+  notes: 'nope',
+  ethAdd: "1234"
+},
+{
+  firstName: 'cache',
+  lastName: 'angus',
+  certificate: 'Bachelor of Commerce',
+  notes: 'nope',
+  ethAdd: "1234"
+}
     ]
     };
 
@@ -105,24 +141,33 @@ class InstitutionTable2 extends Component {
     const { data } = this.state;
     return (
 
+
         <FilterableTable
           namespace = "people"
+          <div>
+            <table name="InstitutionTable">
+        <FilterableTable 
+          namespace = "Database"
+
           initialSort="firstName"
           data = {data}
           fields = {field}
+          autofocusFilter="true"
           tableClassName = "InstitutionTable"
           />
+          </table>
+      </div>
     );
   }
 }
 
 
 let field = [
-  { name: 'firstName', displayName: "First Name", inputFilterable: true, sortable: true },
-  { name: 'lastName', displayName: "Last Name", inputFilterable: true, sortable: true },
-  { name: 'certificate', displayName: "Certificate", inputFilterable: true, sortable: true },
-  { name: 'notes', displayName: "Notes", inputFilterable: true, sortable: true },
-  { name: 'ethAdd', displayName: "Address", inputFilterable: true, exactFilterable: true, sortable: true }
+  { name: 'firstName', displayName: "First Name", inputFilterable: true, sortable: true, thClassName: "firstname" },
+  { name: 'lastName', displayName: "Last Name", inputFilterable: true, sortable: true, thClassName: "lastname" },
+  { name: 'certificate', displayName: "Certificate", inputFilterable: true, sortable: true, thClassName: "certif"},
+  { name: 'notes', displayName: "Notes", inputFilterable: true, sortable: true, thClassName: "noted" },
+  { name: 'ethAdd', displayName: "Address", inputFilterable: true, exactFilterable: true, sortable: true, thClassName: "certid" }
 ];
 
 
