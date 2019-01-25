@@ -26,3 +26,5 @@ firebaseCredentials.json
 package-lock.json
 
 src/firebaseCredentials\.json
+
+backend/
