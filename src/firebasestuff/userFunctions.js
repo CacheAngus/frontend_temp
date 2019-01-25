@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 const {admin} = require('../firebaseConfig.js')
 const {log} = require('./log.js');
 //add functions for one of the firebas tables
