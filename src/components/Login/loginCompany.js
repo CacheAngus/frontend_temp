@@ -3,9 +3,32 @@ import React, { Component } from 'react';
 import './loginCompany.css';
 import { StyleSheet, View, Image, Text } from 'react-native-web';
 import LoginForm from './loginForm';
-
+import fire from '../../firebaseConfig';
 
 class CompanyLogin extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        user: {},
+      }
+    }
+
+    componentDidMount(){
+      this.authListener();
+    }
+
+    authListener() {
+      fire.auth().onAuthStateChanged((user) => {
+        console.log(user);
+        if (user) {
+          this.setState({ user });
+          // localStorage.setItem('user', user.uid);
+        } else {
+          this.setState({ user: null });
+          // localStorage.removeItem('user');
+        }
+      });
+    }
     render() {
         return(
         <View style={styles.contianer}>
@@ -24,6 +47,7 @@ class CompanyLogin extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: 'black',
         flex: 1,
         },
         logoConstiner: {
