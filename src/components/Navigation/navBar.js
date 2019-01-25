@@ -5,20 +5,7 @@ import {Image} from 'react-native-web';
 import {MenuItem, Navbar, Nav, NavItem,FormGroup, FormControl, Button, NavDropdown} from 'react-bootstrap';
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 
-/*class NavigationBar extends Component{
-  render(){
-    return(
-      <div className={`NavigationBar`}>
-        <div className={`NavigationLinks`}>
-          <Link to="/"> Lockness </Link>
-          <Link to="/view"> View </Link>
-          <Link to="/create"> Create </Link>
-          <Link to="/team"> Team </Link>
-        </div>
-      </div>
-  )}
-}
- */
+
 class NavigationBar extends Component {S
   render(){
     return(
@@ -26,20 +13,27 @@ class NavigationBar extends Component {S
 <Navbar bg="dark" variant="dark">
   <Navbar.Header>
     <Navbar.Brand>
-      <a href="#home">Lockness</a>
+      <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
+ LOCKNESS 
+          </Link>
+
       
     </Navbar.Brand>
    
   </Navbar.Header>
-  <Image resizeMode='contain'  source={require('./images/images/lochness.png')}/>
+  
     <Navbar.Form pullRight>
     <Link to="/view"
-        style={{ textDecoration: 'none',  color:'black'}}>
+        style={{ textDecoration: 'none',  color:'white', fontSize: 20 }}>
         View
         </Link>
         <Link to="/create"
-        style={{ textDecoration: 'none',paddingLeft:'10px', color:'black'}}>
+        style={{ textDecoration: 'none',paddingLeft:'20px', color:'white', fontSize: 20}}>
   Create
+        </Link>
+        <Link to="/team"
+        style={{ textDecoration: 'none',paddingLeft:'20px', color:'white', fontSize: 20}}>
+  Team
         </Link>
     </Navbar.Form>
   
