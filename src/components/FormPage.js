@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
-class Form extends Component {
+export class Form extends Component {
     constructor(props) {
           super(props);
           this.state = {
@@ -56,7 +56,7 @@ class Form extends Component {
                       <EthAddress/>
                       <br/>
                       </label>  
-                  <input type = "submit" id="certificate"  value="Create Certificate" />
+                  <input style={styles.submitBut} type = "submit" id="certificate"  value="Create Certificate" />
                   </form>
             
                   </view>
@@ -212,6 +212,14 @@ class Form extends Component {
   
     }
   
+  }
+
+  const styles={
+    submitBut: {
+      
+      adjustsFontSizeToFit: 'true'
+      
+    }
   }
 
   export default Form;

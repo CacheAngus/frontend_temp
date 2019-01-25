@@ -34,7 +34,7 @@ class CompanyLogin extends Component {
         <View style={styles.contianer}>
         <View style={styles.logoContainer}>
             <Image style={styles.logo} source={require('./images/lochness.png')}/>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Company Login</Text>
 
         </View>
         <View style={styles.formContainer}>
