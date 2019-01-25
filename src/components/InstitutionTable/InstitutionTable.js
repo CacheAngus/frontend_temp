@@ -86,7 +86,7 @@ class InstitutionTable2 extends Component {
             firstName: 'Nicholas',
             lastName: 'Chan',
             certificate: 'Bachelor of Commerce',
-            notes: 'this guy is a g',
+            notes: 'this guy is a p',
             ethAdd: "1234"
       },
       {
@@ -140,13 +140,19 @@ class InstitutionTable2 extends Component {
   render() {
     const { data } = this.state;
     return (
-
+      // <Table data={ data }>
+      //         <TableHeaderColumn dataField='firstName' isKey>First Name</TableHeaderColumn>
+      //         <TableHeaderColumn dataField='lastName'>Last Name</TableHeaderColumn>
+      //         <TableHeaderColumn dataField='certificate'>Certificate</TableHeaderColumn>
+      //         <TableHeaderColumn dataField='notes'>Notes</TableHeaderColumn>
+      //         <TableHeaderColumn dataField='ethAdd'>Eth Address</TableHeaderColumn>
+      // </Table>
 
         <FilterableTable
           namespace = "people"
           <div>
             <table name="InstitutionTable">
-        <FilterableTable 
+        <FilterableTable
           namespace = "Database"
 
           initialSort="firstName"
