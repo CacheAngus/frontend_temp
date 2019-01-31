@@ -6,7 +6,8 @@ import "react-table/react-table.css";
 
 import CompanyLogin from './components/Login/loginCompany';
 import UserTable from './components/UserTable/UserTable';
-
+import FormPage from './components/CertificationForm/FormPage.js';
+import TeamPage from './components/TeamPage/TeamPage.js';
 // Navigation
 import NavigationBar from './components/Navigation/navBar.js';
 import Home from './components/Home/home.js';
@@ -14,6 +15,7 @@ import { Router, Route, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
 
 // Login Flow
+
 import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
@@ -84,6 +86,8 @@ handleSubmit(e){
             {/* <div className="App" style={this.state.appBackground}>*/}
             <Route path="/" component={Home} exact/>
             <Route path="/view" name="view" component={UserTable} exact/>
+            <Route path="/create" name="create" component={FormPage} exact/>
+            <Route path="/team" name="team" component={TeamPage} exact/>
 
             {this.state.isSignedIn ? (
               <span>

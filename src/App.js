@@ -6,7 +6,7 @@ import "react-table/react-table.css";
 
 import CompanyLogin from './components/Login/loginCompany';
 import UserTable from './components/UserTable/UserTable';
-import FormPage from './components/FormPage.js';
+import FormPage from './components/CertificationForm/CertForm.js';
 import TeamPage from './components/TeamPage/TeamPage.js';
 // Navigation
 import NavigationBar from './components/Navigation/navBar.js';

@@ -1,11 +1,5 @@
-.team{
-    background-color: gainsboro
-}
-.header {
-    background-image: url(tree.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-
+.team > .team-header {
+    background-image: url('tree.png');
 }
 .tina{
     color: red;
