@@ -15,7 +15,7 @@ const NavigationAuth = () => (
 
 const NavigationNoAuth = () => (
   <Navbar.Form pullRight>
-      <p>Sign in</p>
+    <Link className="navLink" to="/team">Team</Link>
   </Navbar.Form>
 )
 
