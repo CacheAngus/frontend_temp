@@ -11,6 +11,8 @@ import TeamPage from './components/TeamPage/TeamPage.js';
 // Navigation
 import NavigationBar from './components/Navigation/navBar.js';
 import Home from './components/Home/home.js';
+import UserProfilePic from './components/UserProfilePic/UserProfilePic'
+import SignOut from './components/SignOut/SignOut'
 import { Router, Route, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
 
@@ -91,13 +93,10 @@ handleSubmit(e){
 
             {this.state.isSignedIn ? (
               <span>
-                <div>Signed In!</div>
-                <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
                 <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-                <img
-                  alt="profile picture"
-                  src={firebase.auth().currentUser.photoURL}
-                />
+                <UserProfilePic />
+                <SignOut />
+
               </span>
             ) : (
               <StyledFirebaseAuth
