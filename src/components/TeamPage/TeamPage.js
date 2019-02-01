@@ -5,7 +5,7 @@ import {ResponsiveEmbed, PageHeader, Button, OverlayTrigger, Popover, Image, Gri
 class Team extends Component{
     render(){
         return (
-            <header>
+            <header id="teamPage">
            <Header />
         <div class="members">
             <Grid>

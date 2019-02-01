@@ -1,6 +1,8 @@
-.team > .team-header {
-    background-image: url('tree.png');
+.team-header {
+    
+    background-image: url('./tree.png'); 
 }
-.tina{
-    color: red;
+
+#teamPage {
+    background-color: rgb(247, 247, 247);
 }

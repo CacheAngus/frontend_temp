@@ -44,7 +44,7 @@ class UserTable extends Component {
   const data = this.state.data;
     //const {columns} = this.state.columns;
       return (
-        <div>
+        <div id="create-page">
           <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
         Show
         </Button>
@@ -52,13 +52,13 @@ class UserTable extends Component {
          <UserModal show={this.state.modalShow} onHide={modalClose}/>
          <div className="container" style={{ marginTop: 50 }}>
 
-<Nav pullRight variant="tabs" defaultActivitykey="/create">
+<Nav pullRight variant="tabs">
 <NavItem>
   <Link to="/create"> Recent
     </Link></NavItem>
 
 <NavItem style={{marginLeft:10}}>
-  <Link eventKey="link-1" to="/certificate">Certificate</Link>
+  <Link to="/certificate">Certificate</Link>
 </NavItem>
     </Nav>
 <BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
