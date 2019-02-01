@@ -66,36 +66,30 @@ class CertForm extends Component {
     validated = {validated}
     onSubmit = {e => this.handleSubmit(e)}>
     <Row> 
-        <PageHeader id="headPage" style={{color:'black', fontSize: 30}}>Create Certificate</PageHeader>
+        <PageHeader md="6" xs="8" id="headPage" style={{color:'black', fontSize: 30}}>Create Certificate</PageHeader>
     </Row>
     <Row>
-      <FormGroup as={Col} md = "4" xs="3" controlId="formGridFirstName">
-        <Label>First Name</Label>
-        <FormControl required type="text" value={this.state.firstName} onChange={this.changeFirstName} placeholder="Cache"  />
+      <FormGroup as={Col} md = "6" xs="8" controlId="formGridFirstName">
+        <Label>Name</Label>
+        <FormControl required type="text" value={this.state.firstName} onChange={this.changeFirstName} placeholder="Cache Angus"  />
         
       </FormGroup>
   
-      <FormGroup as={Col} md="4" xs="3" controlId="formGridLastName">
-        <Label>Last Name</Label>
-        <FormControl required type="text" value={this.state.lastName} onChange={this.changeLastName}  placeholder="Angus" />
+      <FormGroup style={{marginLeft:50}} as={Col} md="6" xs="8" controlId="formGridLastName">
+        <Label>Teacher Name</Label>
+        <FormControl required type="text" value={this.state.lastName} onChange={this.changeLastName}  placeholder="Tommy Dean" />
         
       </FormGroup>
     </Row>
   
     <Row>
-    <FormGroup as={Col} md="3" xs="3" controlId="formGridNotes">
-      <Label>Notes</Label>
+    <FormGroup as={Col} md="6" xs="8" controlId="formGridNotes">
+      <Label>Description</Label>
       <FormControl required type="text" value={this.state.notes} onChange={this.changeNotes} placeholder=""  />
       
     </FormGroup>
   
-    <FormGroup as={Col} md="3" xs="3" controlId="formGridEthAddress">
-      <Label>Address</Label>
-      <FormControl required type="text" value={this.state.ethAdd} onChange={this.changeEthAddress}  placeholder="123456" />
-      
-    </FormGroup>
-  
-    <FormGroup as={Col} md="3" xs="3" controlId="formGridCertificate.ControlSelect">
+    <FormGroup style={{marginLeft:50}} as={Col} md="6" xs="8" controlId="formGridCertificate.ControlSelect">
         <Label>Certificate Type</Label>
         <FormControl required value={this.state.certificate} onChange={this.changeCertificate} componentClass="select" >
         <option>Choose</option>
@@ -105,9 +99,18 @@ class CertForm extends Component {
         </FormControl>
         
       </FormGroup>
+      </Row>
+
+    <FormGroup  style={{marginLeft:50}}as={Col} md="6" xs="8" controlId="formGridEthAddress">
+      <Label>Attach Course Syllabus</Label>
+      <FormControl required type="text" value={this.state.ethAdd} onChange={this.changeEthAddress}   />
       
-        </Row>
-        <Button id="certbutton" type="submit">Create</Button>
+    </FormGroup>
+  
+    
+      
+        
+        <Button id="certbutton" style={{color:'white'}} type="submit">Next</Button>
     
   </Form>
   </div>

@@ -54,7 +54,7 @@ class UserTable extends Component {
 
 <Nav pullRight variant="tabs">
 <NavItem>
-  <Link to="/create"> Recent
+  <Link to="/view"> Recent
     </Link></NavItem>
 
 <NavItem style={{marginLeft:10}}>
