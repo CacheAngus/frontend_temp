@@ -11,7 +11,7 @@ class UserProfilePic extends Component {
       <div>
         <img
        className="rounded-circle test" alt="profile picture"
-          src={firebase.auth().currentUser.photoURL!=null ? firebase.auth().currentUser.photoURL : ""}/>
+          src={firebase.auth().currentUser.photoURL ? firebase.auth().currentUser.photoURL : ""}/>
       </div>
     )}
 }

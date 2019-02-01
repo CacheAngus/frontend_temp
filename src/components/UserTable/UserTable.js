@@ -6,8 +6,7 @@ import {Link} from 'react-router-dom'
 import {Button, Nav, NavItem} from 'react-bootstrap'
 import "react-table/react-table.css";
 import BootstrapTable from "react-bootstrap-table-next"
-import UserPageBanner from "../UserPageBanner/UserPageBanner"
-
+import firebase from 'firebase'
 class UserTable extends Component {
   constructor() {
     super();
@@ -42,7 +41,7 @@ class UserTable extends Component {
     let modalClose = () => this.setState({modalShow: false});
 
   const data = this.state.data;
-    //const {columns} = this.state.columns;
+    //const {columns} = this.state.column s;
       return (
         <div>
           <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
