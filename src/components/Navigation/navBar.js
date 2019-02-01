@@ -29,7 +29,7 @@ class NavigationBar extends Component {
   <Navbar.Header>
     <Navbar.Brand>
       <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
- LOCKNESS
+          LOCKNESS
       </Link>
     </Navbar.Brand>
   </Navbar.Header>

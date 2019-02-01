@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserModal from './userModal.js'
+import UserModal from './classModal.js'
 import {Link} from 'react-router-dom'
 // Import React Table
 //documentation: https://react-table.js.org/#/story/readme
@@ -45,28 +45,36 @@ class UserTable extends Component {
     //const {columns} = this.state.columns;
       return (
         <div id="create-page">
-          <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
-        Show
-        </Button>
-         
-         <UserModal show={this.state.modalShow} onHide={modalClose}/>
+
+
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Show
+          </button>
+          <UserModal show={this.state.modalShow} onHide={modalClose}/>
+
          <div className="container" style={{ marginTop: 50 }}>
 
-<Nav pullRight variant="tabs">
-<NavItem>
-  <Link to="/view"> Recent
-    </Link></NavItem>
+           <Nav pullRight variant="tabs">
+             <NavItem>
+               <Link to="/view"> Recent
+             </Link></NavItem>
+             <NavItem>
+               <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+          </button>
+          <UserModal show={this.state.modalShow} onHide={modalClose}/> Course
+             </NavItem>
 
-<NavItem style={{marginLeft:10}}>
-  <Link to="/certificate">Certificate</Link>
-</NavItem>
-    </Nav>
-<BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
-
-</div>
-        </div>
+             <NavItem style={{marginLeft:25}}>
+               <Link to="/certificate">Certificate</Link>
+           </NavItem>
+           </Nav>
+         <BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
         
-      // <div>
+      </div>
+      </div>
+
+  
       //   <ReactTable
       //     data={data}
       //     columns={[{

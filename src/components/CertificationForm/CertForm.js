@@ -110,7 +110,7 @@ class CertForm extends Component {
     
       
         
-        <Button id="certbutton" style={{color:'white'}} type="submit">Next</Button>
+        <Button id="certbutton" style={{color:'white', marginBottom: 20, marginleft: 100}} type="submit">Next</Button>
     
   </Form>
   </div>
