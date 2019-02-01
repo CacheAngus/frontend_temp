@@ -82,7 +82,7 @@ handleSubmit(e){
     return (
       <BrowserRouter>
         <div className={`App__Container`}>
-          <NavigationBar />
+          <NavigationBar authUser={this.state.isSignedIn}/>
             {/* <div className="App" style={this.state.appBackground}>*/}
             <Route path="/" component={Home} exact/>
             <Route path="/view" name="view" component={UserTable} exact/>
