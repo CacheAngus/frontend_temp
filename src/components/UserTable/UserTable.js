@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-
+import UserModal from './userModal.js'
+import {Link} from 'react-router-dom'
 // Import React Table
 //documentation: https://react-table.js.org/#/story/readme
-import ReactTable from "react-table";
+import {Button, Nav, NavItem} from 'react-bootstrap'
 import "react-table/react-table.css";
 import BootstrapTable from "react-bootstrap-table-next"
 
@@ -31,17 +32,40 @@ class UserTable extends Component {
     },{
       dataField: 'notes',
       text: 'notes'
-    }]
-    };
+    }],
+    modalShow: false
+  };
   }
+
+
   render() {
+    let modalClose = () => this.setState({modalShow: false});
+
   const data = this.state.data;
     //const {columns} = this.state.columns;
       return (
-        <div className="container" style={{ marginTop: 50 }}>
+        <div>
+          <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
+        Show
+        </Button>
+         
+         <UserModal show={this.state.modalShow} onHide={modalClose}/>
+         <div className="container" style={{ marginTop: 50 }}>
 
-  <BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
+<Nav pullRight variant="tabs" defaultActivitykey="/create">
+<NavItem>
+  <Link to="/create"> Recent
+    </Link></NavItem>
+
+<NavItem style={{marginLeft:10}}>
+  <Link eventKey="link-1" to="/certificate">Certificate</Link>
+</NavItem>
+    </Nav>
+<BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
+
 </div>
+        </div>
+        
       // <div>
       //   <ReactTable
       //     data={data}
