@@ -7,12 +7,11 @@ import firebase from 'firebase'
 
 class UserProfilePic extends Component {
   render(){
-    //simple session management, pass down the authUser from App.js as a prop
     return(
       <div>
         <img
        className="rounded-circle test" alt="profile picture"
-          src={firebase.auth().currentUser.photoURL}/>
+          src={firebase.auth().currentUser.photoURL!=null ? firebase.auth().currentUser.photoURL : ""}/>
       </div>
     )}
 }

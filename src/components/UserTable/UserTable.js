@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import {Button, Nav, NavItem} from 'react-bootstrap'
 import "react-table/react-table.css";
 import BootstrapTable from "react-bootstrap-table-next"
-
+import UserPageBanner from "../UserPageBanner/UserPageBanner"
 
 class UserTable extends Component {
   constructor() {
@@ -48,7 +48,7 @@ class UserTable extends Component {
           <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
         Show
         </Button>
-         
+
          <UserModal show={this.state.modalShow} onHide={modalClose}/>
          <div className="container" style={{ marginTop: 50 }}>
 
@@ -65,7 +65,7 @@ class UserTable extends Component {
 
 </div>
         </div>
-        
+
       // <div>
       //   <ReactTable
       //     data={data}
