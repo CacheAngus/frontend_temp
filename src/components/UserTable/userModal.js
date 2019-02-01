@@ -4,45 +4,25 @@ import tree from '../TeamPage/tree.png'
 export default class courseOverview extends Component{
     render(){
         return(
-            <Modal {...this.props} aria-labelledby="contained-modal-title-vcenter">
-                <ModalHeader closeButton>
-                <ModalTitle id="contained-modal-title-vcenter">
-                Class
-                </ModalTitle>
-                </ModalHeader>
-
-                <ModalBody>
-                    <Grid>
-                        <Row className="show-grid">
-                        <Col xs={6} md={4}>
-                        <Image src={tree} responsive></Image>
-                        </Col>
-                        <Col xs={10} md={8}>
-                        Course Overview
-                        </Col>
-                        </Row>
-            <Row className="show-grid">
-              <Col style={{color:'blue'}} xs={6} md={4}>
-              Skills
-              <br />
-              Skills
-              </Col>
-              <Col style={{color:'blue'}} xs={10} md={8}>
-                        <div className="container">
-                         <p>Here is the outline of the course</p>
-                        </div>
-                        </Col>
-                        </Row>
-
-            </Grid>
-                </ModalBody>
-        <ModalFooter>
-          <Button id="data-camp-button" onClick={this.props.onHide}>DATA CAMP</Button>
-          <Button id="sylla=button"onClick={this.props.onHide}>SYLLABUS</Button>
-        </ModalFooter>
-                       
-            </Modal>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         )
-   
     }
 }

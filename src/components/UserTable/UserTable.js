@@ -45,27 +45,28 @@ class UserTable extends Component {
     //const {columns} = this.state.columns;
       return (
         <div id="create-page">
-          <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
-        Show
-        </Button>
-         
-         <UserModal show={this.state.modalShow} onHide={modalClose}/>
+
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Show
+          </button>
+          <UserModal show={this.state.modalShow} onHide={modalClose}/>
+
          <div className="container" style={{ marginTop: 50 }}>
 
-<Nav pullRight variant="tabs">
-<NavItem>
-  <Link to="/create"> Recent
-    </Link></NavItem>
+           <Nav pullRight variant="tabs">
+             <NavItem>
+               <Link to="/create"> Recent
+             </Link></NavItem>
 
-<NavItem style={{marginLeft:10}}>
-  <Link to="/certificate">Certificate</Link>
-</NavItem>
-    </Nav>
-<BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
-
-</div>
+             <NavItem style={{marginLeft:10}}>
+               <Link to="/certificate">Certificate</Link>
+           </NavItem>
+         </Nav>
+         <BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
         </div>
-        
+      </div>
+
       // <div>
       //   <ReactTable
       //     data={data}
