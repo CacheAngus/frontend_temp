@@ -1,8 +1,7 @@
 .navbar,
 navbar-default {
     color: 'white';
-    background-image: linear-gradient(to bottom,#449afc 0,#449afc 100%) !important;
-
+    background-color: #216EB1;
 }
 
 .navLink{
