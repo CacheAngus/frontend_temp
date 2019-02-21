@@ -11,6 +11,9 @@ import TeamPage from './components/TeamPage/TeamPage.js';
 // Navigation
 import NavigationBar from './components/Navigation/navBar.js';
 import Home from './components/Home/home.js';
+import UserProfilePic from './components/UserProfilePic/UserProfilePic'
+import UserPageBanner from "./components/UserPageBanner/UserPageBanner"
+import SignOut from './components/SignOut/SignOut'
 import { Router, Route, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
 
@@ -27,7 +30,8 @@ class App extends Component {
       lastNameValue: "",
       certificateValue: "",
       notesValue: "",
-      // isSignedIn: false,
+      authUser: null
+      // authUser: false,
     };
     firebase.database().ref('users/' + '1234').set({
       username: "testing", //test
@@ -37,7 +41,6 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  state = { isSignedIn: false }
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -49,10 +52,16 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({ isSignedIn: !!user })
-      console.log("user", user)
-    })
+    this.listener = firebase.auth().onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null});
+      console.log("user", authUser)
+    });
+  }
+
+  componentWillUnmount() {
+    this.listener();
   }
 
 handleSubmit(e){
@@ -82,22 +91,15 @@ handleSubmit(e){
     return (
       <BrowserRouter>
         <div className={`App__Container`}>
-          <NavigationBar authUser={this.state.isSignedIn}/>
+          <NavigationBar authUser={this.state.authUser} />
             {/* <div className="App" style={this.state.appBackground}>*/}
             <Route path="/" component={Home} exact/>
-            <Route path="/view" name="view" component={UserTable} exact/>
+            <Route path="/view" name="view" render={(props) => <UserTable {...props} authUser={this.state.authUser} />} exact />
             <Route path="/create" name="create" component={FormPage} exact/>
             <Route path="/team" name="team" component={TeamPage} exact/>
 
-            {this.state.isSignedIn ? (
+            {this.state.authUser ? (
               <span>
-                <div>Signed In!</div>
-                <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-                <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-                <img
-                  alt="profile picture"
-                  src={firebase.auth().currentUser.photoURL}
-                />
               </span>
             ) : (
               <StyledFirebaseAuth

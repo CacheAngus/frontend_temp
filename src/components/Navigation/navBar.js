@@ -3,24 +3,29 @@ import { Link } from 'react-router-dom';
 import './navBar.css'
 import {Image} from 'react-native-web';
 import {MenuItem, Navbar, Nav, NavItem,FormGroup, FormControl, Button, NavDropdown} from 'react-bootstrap';
+import SignOut from '../SignOut/SignOut'
+
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 
-const NavigationAuth = () => (
-  <Navbar.Form pullRight>
-      <Link className="navLink" to="/view">View</Link>
-      <Link className="navLink" to="/create">Create</Link>
-      <Link className="navLink" to="/team">Team</Link>
-  </Navbar.Form>
-)
-
-const NavigationNoAuth = () => (
-  <Navbar.Form pullRight>
-    <Link className="navLink" to="/team">Team</Link>
-  </Navbar.Form>
-)
-
 class NavigationBar extends Component {
+  constructor(){
+    super()
+  }
+
   render(){
+    const NavigationAuth = () => (
+      <Navbar.Form pullRight>
+          <Link className="navLink" to="/view">View</Link>
+          <Link className="navLink" to="/create">Create</Link>
+          <Link className="navLink" to="/team">Team</Link>
+          <Link className="navLink welcome" to="#">Welcome {this.props.authUser.displayName.split(" ")[0] + " "} <SignOut /> </Link>
+      </Navbar.Form>
+    )
+    const NavigationNoAuth = () => (
+      <Navbar.Form pullRight>
+        <Link className="navLink" to="/team">Team</Link>
+      </Navbar.Form>
+    )
     //simple session management, pass down the authUser from App.js as a prop
     console.log(this.props.authUser)
     return(
@@ -34,7 +39,7 @@ class NavigationBar extends Component {
     </Navbar.Brand>
   </Navbar.Header>
 
-    {this.props.authUser ? <NavigationAuth /> : <NavigationNoAuth />}
+    {this.props.authUser ? <NavigationAuth authUser={this.props.authUser}/> : <NavigationNoAuth />}
 </Navbar>
     )}
 }
