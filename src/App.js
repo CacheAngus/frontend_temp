@@ -91,7 +91,7 @@ handleSubmit(e){
     return (
       <BrowserRouter>
         <div className={`App__Container`}>
-          <NavigationBar authUser={this.state.authUser}/>
+          <NavigationBar authUser={this.state.authUser} />
             {/* <div className="App" style={this.state.appBackground}>*/}
             <Route path="/" component={Home} exact/>
             <Route path="/view" name="view" render={(props) => <UserTable {...props} authUser={this.state.authUser} />} exact />
