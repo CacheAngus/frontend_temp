@@ -7,6 +7,8 @@ import {Button, Nav, NavItem} from 'react-bootstrap'
 import "react-table/react-table.css";
 import BootstrapTable from "react-bootstrap-table-next"
 import firebase from 'firebase'
+import UserPageBanner from '../UserPageBanner/UserPageBanner'
+
 class UserTable extends Component {
   constructor() {
     super();
@@ -44,6 +46,7 @@ class UserTable extends Component {
     //const {columns} = this.state.column s;
       return (
         <div>
+          <UserPageBanner authUser={this.props.authUser} />
           <Button variant="primary" onClick={() => this.setState({modalShow: true})}>
         Show
         </Button>
