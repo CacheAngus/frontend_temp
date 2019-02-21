@@ -1,3 +1,10 @@
 .center{
   align: center;
 }
+.padding-top{
+  padding-top: 20px;
+}
+.displayName{
+  font-size: 20px;
+  margin-top:10px;
+}

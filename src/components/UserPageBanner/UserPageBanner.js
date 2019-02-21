@@ -11,16 +11,16 @@ class UserPageBanner extends Component {
   }
   render(){
     return(
-      <div class="container h-100">
-    <div class="row align-items-center h-100">
-        <div class="col-6 mx-auto">
-        <div>
-            <UserProfilePic authUser={this.props.authUser} />
-            <h2>Nicholas Chan </h2>
-          </div>
+    <div class="container padding-top">
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+            <div>
+                <UserProfilePic authUser={this.props.authUser} />
+                <h2 class="displayName">{this.props.authUser? this.props.authUser.displayName : ""}</h2>
+              </div>
+            </div>
         </div>
     </div>
-</div>
 
     )
   }
