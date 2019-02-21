@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './navBar.css'
 import {Image} from 'react-native-web';
 import {MenuItem, Navbar, Nav, NavItem,FormGroup, FormControl, Button, NavDropdown} from 'react-bootstrap';
+import SignOut from '../SignOut/SignOut'
+
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 
 const NavigationAuth = () => (
@@ -10,6 +12,7 @@ const NavigationAuth = () => (
       <Link className="navLink" to="/view">View</Link>
       <Link className="navLink" to="/create">Create</Link>
       <Link className="navLink" to="/team">Team</Link>
+      <Link className="navLink" to="/"> <SignOut /> </Link>
   </Navbar.Form>
 )
 

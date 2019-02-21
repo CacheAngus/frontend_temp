@@ -100,7 +100,6 @@ handleSubmit(e){
 
             {this.state.authUser ? (
               <span>
-                Welcome {this.state.authUser.displayName}
               </span>
             ) : (
               <StyledFirebaseAuth
