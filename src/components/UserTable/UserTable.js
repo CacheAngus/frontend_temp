@@ -8,7 +8,7 @@ import "react-table/react-table.css";
 import BootstrapTable from "react-bootstrap-table-next"
 import firebase from 'firebase'
 import UserPageBanner from '../UserPageBanner/UserPageBanner'
-
+import CategoryBadge from '../CategoryBadge/CategoryBadge'
 class UserTable extends Component {
   constructor() {
     super();

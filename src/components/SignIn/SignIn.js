@@ -16,10 +16,12 @@ class SignIn extends Component {
   }
   render(){
     return(
-      <StyledFirebaseAuth
+      <div className='inline'>
+      <StyledFirebaseAuth className='reduce-width'
         uiConfig={this.uiConfig}
         firebaseAuth={firebase.auth()}
       />
+    </div>
     )}
 }
 
