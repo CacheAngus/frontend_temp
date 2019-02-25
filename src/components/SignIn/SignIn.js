@@ -4,7 +4,7 @@ import { Image, Button} from 'react-bootstrap';
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-class SignOut extends Component {
+class SignIn extends Component {
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
@@ -23,4 +23,4 @@ class SignOut extends Component {
     )}
 }
 
-export default SignOut
+export default SignIn

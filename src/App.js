@@ -109,17 +109,6 @@ handleSubmit(e){
                 )} />
               <Route path="/create" name="create" component={FormPage} exact/>
               <Route path="/team" name="team" component={TeamPage} exact/>
-
-              {this.state.authUser ? (
-                <span>
-                </span>
-              ) : (
-                <StyledFirebaseAuth
-                  uiConfig={this.uiConfig}
-                  firebaseAuth={firebase.auth()}
-                />
-              )}
-        {/*   </div> */}
         </AuthenticationProvider>
       </div>
     </BrowserRouter>
