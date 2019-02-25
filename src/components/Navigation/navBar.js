@@ -4,6 +4,9 @@ import './navBar.css'
 import {Image} from 'react-native-web';
 import {MenuItem, Navbar, Nav, NavItem,FormGroup, FormControl, Button, NavDropdown} from 'react-bootstrap';
 import SignOut from '../SignOut/SignOut'
+import NavigationAuth from './NavigationAuth'
+import NavigationNoAuth from './NavigationNoAuth'
+import {AuthenticationConsumer} from '../AuthenticationContext/AuthenticationContext'
 
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 
@@ -13,35 +16,27 @@ class NavigationBar extends Component {
   }
 
   render(){
-    const NavigationAuth = () => (
-      <Navbar.Form pullRight>
-          <Link className="navLink" to="/view">View</Link>
-          <Link className="navLink" to="/create">Create</Link>
-          <Link className="navLink" to="/team">Team</Link>
-          <Link className="navLink welcome" to="#">Welcome {this.props.authUser.displayName.split(" ")[0] + " "} <SignOut /> </Link>
-      </Navbar.Form>
-    )
-    const NavigationNoAuth = () => (
-      <Navbar.Form pullRight>
-        <Link className="navLink" to="/team">Team</Link>
-      </Navbar.Form>
-    )
     //simple session management, pass down the authUser from App.js as a prop
-    console.log(this.props.authUser)
     return(
+  <AuthenticationConsumer>
+        {auth => (
+          <Navbar bg="dark" variant="dark">
+              <Navbar.Header>
+                <Navbar.Brand>
+                  <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
+                      LOCKNESS
+                  </Link>
+                </Navbar.Brand>
+              </Navbar.Header>
+                {(auth.authUser ? <NavigationAuth /> : <NavigationNoAuth />)}
+                {console.log(auth.authUser)}
+                {console.log('consumer')}
+              </Navbar>
 
-<Navbar bg="dark" variant="dark">
-  <Navbar.Header>
-    <Navbar.Brand>
-      <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
-          LOCKNESS
-      </Link>
-    </Navbar.Brand>
-  </Navbar.Header>
+              )}
+    </AuthenticationConsumer>
 
-    {this.props.authUser ? <NavigationAuth authUser={this.props.authUser}/> : <NavigationNoAuth />}
-</Navbar>
-    )}
-}
+      )}
+  }
 
 export default NavigationBar

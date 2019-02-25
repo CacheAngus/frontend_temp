@@ -14,13 +14,14 @@ import Home from './components/Home/home.js';
 import UserProfilePic from './components/UserProfilePic/UserProfilePic'
 import UserPageBanner from "./components/UserPageBanner/UserPageBanner"
 import SignOut from './components/SignOut/SignOut'
-import { Router, Route, IndexRoute} from 'react-router'
+import { Router, Route, Redirect, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
 
 // Login Flow
 
 import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import {AuthenticationProvider, AuthenticationConsumer} from './components/AuthenticationContext/AuthenticationContext'
 
 class App extends Component {
   constructor(props) {
@@ -33,11 +34,11 @@ class App extends Component {
       authUser: null
       // authUser: false,
     };
-    firebase.database().ref('users/' + '1234').set({
-      username: "testing", //test
-      email: "test",
-      profile_picture : "test"
-    });
+    // firebase.database().ref('users/' + '1234').set({
+    //   username: "testing", //test
+    //   email: "test",
+    //   profile_picture : "test"
+    // });
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -91,23 +92,24 @@ handleSubmit(e){
     return (
       <BrowserRouter>
         <div className={`App__Container`}>
-          <NavigationBar authUser={this.state.authUser} />
-            {/* <div className="App" style={this.state.appBackground}>*/}
-            <Route path="/" component={Home} exact/>
-            <Route path="/view" name="view" render={(props) => <UserTable {...props} authUser={this.state.authUser} />} exact />
-            <Route path="/create" name="create" component={FormPage} exact/>
-            <Route path="/team" name="team" component={TeamPage} exact/>
-
-            {this.state.authUser ? (
-              <span>
-              </span>
-            ) : (
-              <StyledFirebaseAuth
-                uiConfig={this.uiConfig}
-                firebaseAuth={firebase.auth()}
-              />
-            )}
-      {/*   </div> */}
+          <AuthenticationProvider value={this.state} >
+            <NavigationBar />
+              {/* <div className="App" style={this.state.appBackground}>*/}
+              <Route exact path="/" render={() => (
+                  this.state.authUser ? (<Redirect to="/view" />)
+                    : (
+                      <Home />
+                    )
+                )} />
+              <Route exact path="/view" name="view" render={() => (
+                  this.state.authUser ? (<UserTable />)
+                    : (
+                      <Redirect to="/" />
+                    )
+                )} />
+              <Route path="/create" name="create" component={FormPage} exact/>
+              <Route path="/team" name="team" component={TeamPage} exact/>
+        </AuthenticationProvider>
       </div>
     </BrowserRouter>
   )};
