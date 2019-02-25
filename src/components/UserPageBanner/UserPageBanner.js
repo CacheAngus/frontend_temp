@@ -4,6 +4,7 @@ import './userPageBanner.css';
 
 import UserProfilePic from '../UserProfilePic/UserProfilePic'
 import SignOut from '../SignOut/SignOut'
+import {AuthenticationConsumer} from '../AuthenticationContext/AuthenticationContext'
 
 class UserPageBanner extends Component {
   constructor() {
@@ -15,9 +16,15 @@ class UserPageBanner extends Component {
         <div class="row justify-content-center">
             <div class="col-6 text-center">
             <div>
-                <UserProfilePic authUser={this.props.authUser} />
-                <h2 class="displayName">{this.props.authUser? this.props.authUser.displayName : ""}</h2>
-              </div>
+              <AuthenticationConsumer>
+                {(auth) => (
+                  <div>
+                    <UserProfilePic />
+                    <h2 class="displayName">{(auth.authUser ? auth.authUser.displayName : "")}</h2>
+                  </div>
+                )}
+              </AuthenticationConsumer>
+            </div>
             </div>
         </div>
     </div>

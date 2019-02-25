@@ -45,8 +45,10 @@ class UserTable extends Component {
   const data = this.state.data;
     //const {columns} = this.state.column s;
       return (
+        <div>
          <UserModal show={this.state.modalShow} onHide={modalClose}/>
         <div id="create-page">
+          <UserPageBanner />
 
 
 
@@ -72,11 +74,11 @@ class UserTable extends Component {
            </NavItem>
            </Nav>
          <BootstrapTable keyField='certificateNo' data={data } columns={ this.state.columns } />
-        
       </div>
       </div>
+    </div>
 
-  
+
       //   <ReactTable
       //     data={data}
       //     columns={[{
