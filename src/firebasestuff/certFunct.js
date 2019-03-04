@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 const {admin} = require('../firebaseConfig.js')
-const {log} = require('./log.js');
+const {log} = require('../firebase/log');
 
 
 
@@ -43,3 +43,4 @@ static updateCertificate(certid, firstname, lastname, userEmail, certname, busin
         return admin.database().ref('certificate/' + certid).remove();
     }
 }
+export default Certificates;

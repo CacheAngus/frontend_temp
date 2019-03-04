@@ -1,5 +1,5 @@
 #cert {
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
 width: 100%;
 }
 #certform {
@@ -17,3 +17,4 @@ width: 100%;
 .validated FormControl:invalid{
     border-color: red;
 }
+

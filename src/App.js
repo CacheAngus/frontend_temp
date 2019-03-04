@@ -23,6 +23,7 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import {AuthenticationProvider, AuthenticationConsumer} from './components/AuthenticationContext/AuthenticationContext'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +40,7 @@ class App extends Component {
     //   email: "test",
     //   profile_picture : "test"
     // });
-    this.handleSubmit = this.handleSubmit.bind(this);
+   // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   uiConfig = {
@@ -65,14 +66,14 @@ class App extends Component {
     this.listener();
   }
 
-handleSubmit(e){
+/*handleSubmit(e){
   if (!e.target.checkValidity()) {
     // form is invalid! so we do nothing
     return;
-  }
-  alert('Form Submitted');
+  }*/
+ 
   //does this even go in here idk, probably should add in error catching
-  axios({
+  /*axios({
     method: 'post',
     //figure out where to actually post the info and how to post it
     url: './posting',
@@ -83,10 +84,10 @@ handleSubmit(e){
       certificateValue: this.state.certificateValue,
       notesValue: this.state.notesValue
        }
-  });
-  e.preventDefault();
+  });*/
+  /*e.preventDefault();
   alert('Form Submitted!')
-};
+};*/
 
   render() {
     return (

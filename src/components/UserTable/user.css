@@ -1,24 +1,29 @@
-#create-page {
-    background-color: aliceblue;
+.create-page {
+    background-color: white;
     width: 100%;
     padding-bottom: 20%;
+    margin-top: 0%;
 }
 
 
+.btn btn-link {
+    color: #216EB1;
+}
 .col-xs-4 {
-    color: rgb(25, 108, 180);
-    outline-color: rgb(25, 108, 180);
+    color:#216EB1;
+    outline-color: #216EB1;
 }
 .col-xs-8 {
-    color: rgb(25, 108, 180);
+    color: #216EB1;
 }
 
 .col-xs-12 {
-  color: rgb(25, 108, 180);
+  color: #216EB1;
   outline: 1ch;
-  outline-color: rgb(25, 108, 180);;
+  outline-color: #216EB1;;
 }
 
 .modal fade {
     background-color: aliceblue;
 }
+
