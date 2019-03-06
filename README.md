@@ -1,8 +1,11 @@
-## Letter of Credit Sample Application
+## Merging smart contracts
 
-To deploy this application, run the provided install script by using the following command:
+Welcome to lockness! If this is your first time running our application run the following commands.
 
-`./installers/install.sh`
+`cd $COMPOSER_ROOT/fabric-dev-servers
+./downloadFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh`
 
 This will open the tutorial and the four banking tabs that make up the application, as well as Playground and the REST server.
 
