@@ -10,13 +10,15 @@ class Users {
             email: userEmail
         }).catch((err) => console.log(err));
     }
-    static getUser(){
-        return admin.database().ref('user/').once('value'.then(function(snapshot){
-            return snapshot.val() }
+    static getUser(userId){
+        return admin.database().ref('user/' + userId).once('value'.then(function(snapshot){
+            return snapshot.val() }, function(err){
+              console.error(err);
+            }
         )
         )
 }
-        
+
 
     static updateUser(userid, userEmail, lastname){
     var userData = {
@@ -27,13 +29,13 @@ class Users {
     updates['user/' + userid ] = userData;
 
     return firebase.database().ref().update(updates);
-    
+
 }
     static deleteUser(userid){
 
     return admin.database().ref('user/' + userid).remove();
 }
-        
+
 }
 
 module.exports = Users;
