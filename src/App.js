@@ -16,13 +16,14 @@ import UserPageBanner from "./components/UserPageBanner/UserPageBanner"
 import SignOut from './components/SignOut/SignOut'
 import { Router, Route, Redirect, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
-
+import SignUp from './components/SignUp/SignUp'
 // Login Flow
 
 import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import {AuthenticationProvider, AuthenticationConsumer} from './components/AuthenticationContext/AuthenticationContext'
 
+var user_email = null;
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class App extends Component {
       authUser
         ? this.setState({ authUser })
         : this.setState({ authUser: null});
-      console.log("user", authUser)
+     // console.log("user", authUser)
     });
   }
 
@@ -66,28 +67,7 @@ class App extends Component {
     this.listener();
   }
 
-/*handleSubmit(e){
-  if (!e.target.checkValidity()) {
-    // form is invalid! so we do nothing
-    return;
-  }*/
- 
-  //does this even go in here idk, probably should add in error catching
-  /*axios({
-    method: 'post',
-    //figure out where to actually post the info and how to post it
-    url: './posting',
-    data: {
-      lastNameValue: this.state.lastNameValue,
-      firstNameValue: this.state.firstNameValue,
-      ethAddressValue: this.state.ethAddressValue,
-      certificateValue: this.state.certificateValue,
-      notesValue: this.state.notesValue
-       }
-  });*/
-  /*e.preventDefault();
-  alert('Form Submitted!')
-};*/
+
 
   render() {
     return (
@@ -101,15 +81,25 @@ class App extends Component {
                     : (
                       <Home />
                     )
-                )} />
-              <Route exact path="/view" name="view" render={() => (
-                  this.state.authUser ? (<UserTable />)
+                )} /> 
+                <Route exact path="/view"  name="view" render={() => (
+                  this.state.authUser ? (<UserTable authUser={this.state.authUser} />)
                     : (
                       <Redirect to="/" />
                     )
                 )} />
-              <Route path="/create" name="create" component={FormPage} exact/>
-              <Route path="/team" name="team" component={TeamPage} exact/>
+                 
+                 
+             
+                 <Route exact path="/create"  name="create" render={() => (
+                  this.state.authUser ? (<FormPage authUser={this.state.authUser} />)
+                    : (
+                      <Redirect to="/" />
+                    )
+                )} /> 
+              
+              <Route path="/team" name="team" component={TeamPage}  exact/>
+            
         </AuthenticationProvider>
       </div>
     </BrowserRouter>

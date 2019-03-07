@@ -22,7 +22,9 @@ class CertForm extends Component {
           email: "",
           certificate: "",
           Notes: "",
-          busmail:"" };
+          busmail: this.props.authUser.email ,
+          business:"",
+        descr:""};
 
 
 
@@ -32,7 +34,9 @@ class CertForm extends Component {
       this.changeCertificate = this.changeCertificate.bind(this);
       this.changeNotes = this.changeNotes.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.changeBusMail = this.changeBusMail.bind(this);  
+      
+      this.changeBusMail = this.changeBusMail.bind(this);
+      this.chaneDescr = this.changeDescr.bind(this); 
     }
 
         
@@ -51,14 +55,17 @@ class CertForm extends Component {
                 this.setState({Notes: e.target.value});
                 } 
        changeBusMail(e) {
-                  this.setState({busmail: e.target.value});
+                  this.setState({business: e.target.value});
                   } 
       changeCertificate(e) {
                   this.setState({certificate: e.target.value});
                   }
+      changeDescr(e){
+        this.setState({descr: e.target.value});
+      }
       handleSubmit(event) {
         const form = event.currentTarget;
-        if (!form.checkValidity()) {
+        if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
@@ -71,7 +78,9 @@ class CertForm extends Component {
           lastName:this.state.lastName,
           Notes:this.state.Notes,
           email:this.state.email,
-          busmail:this.state.busmail
+          busmail:this.state.busmail,
+          business: this.state.business,
+          descr:this.state.descr
           }
        
  const refSrc = firebase.database().ref('certificates/' +'/');
@@ -83,7 +92,9 @@ class CertForm extends Component {
           lastName:"",
           Notes:"",
           email:"",
-          busmail:""
+          busmail:"",
+          business:"",
+          descr:""
         });
 
 
@@ -101,71 +112,72 @@ class CertForm extends Component {
   <script src="/my.js"></script>
   <div class="bg"></div>
   <div class="jumbotron text-center" md="6" xs="8" id="headPage" style={{color:'black', fontSize: 50}}><h1 id="bottom">Create Certificate</h1></div>
-    <Form id="certform"
-    style={{marginTop: 15}}
-    noValidate
-    validated = {validated}
+    <form class="certform"
+    
+    novalidate
     onSubmit = {e => this.handleSubmit(e)}>
+    <div class="form-row">
+    <div class="col-md-4 mb-3">
+    <label for="validationCutsom1"> First Name </label>
+        <input type="text" class="form-control" id="validationCustom1" value={this.state.firstName} onChange={this.changeFirstName} placeholder="Cache" required />
+     <div class="invalid-feedback">
+     Please Input Name
+     </div> 
+     </div>  
+     <div class="col-md-4 mb-3">
+    <label for="validationCutsom2"> Last Name </label>
+        <input class="form-control" type="text" id="validationCustom2" value={this.state.lastName} onChange={this.changeLastName} placeholder="Angus" required />
+     <div class="invalid-feedback">
+     Please Input Name
+     </div> 
+     </div>
+     </div>
+     <div class="form-row">
+    <div class="col-md-4 mb-3">
+    <label for="validationCutsom3"> Description </label>
+        <input class="form-control" type="text" id="validationCustom3" value={this.state.Notes} onChange={this.changeNotes} placeholder="A React Course" required />
+     <div class="invalid-feedback">
+     Please Input A Certificate Description
+     </div> 
+     </div>
      
-    <Row>
-      <FormGroup as={Col} md = "6" xs="8" controlId="formGridFirstName">
-        <Label>First Name</Label>
-        <FormControl required type="text" value={this.state.firstName} onChange={this.changeFirstName} placeholder="Cache"  />
-        
-      </FormGroup>
-  
-      <FormGroup style={{marginLeft:50}} as={Col} md="6" xs="8" controlId="formGridLastName">
-        <Label>Last Name</Label>
-        <FormControl required type="text" value={this.state.lastName} onChange={this.changeLastName}  placeholder="Angus" />
-        
-      </FormGroup>
-    </Row>
-  
-    <Row>
-    <FormGroup as={Col} md="6" xs="8" controlId="formGridNotes">
-      <Label>Description</Label>
-      <FormControl required type="text" value={this.state.Notes} onChange={this.changeNotes} placeholder="A React Course "  />
-      
-    </FormGroup>
-  
-    <FormGroup style={{marginLeft:50}} as={Col} md="6" xs="8" controlId="formGridCertificate.ControlSelect">
-        <Label>Certificate Type</Label>
-        <FormControl required value={this.state.certificate} onChange={this.changeCertificate} componentClass="select" >
-        <option>Choose</option>
-        <option value="Bachelor">Bachelor Degree</option>
+    <div class="col-md-4 mb-3">
+    <label for="validationCutsom4"> Certificate Type </label>
+        <select class="form-control" id="validationCustom4" value={this.state.certificate} onChange={this.changeCertificate} required >
+          <option selected>Choose</option>
+           <option value="Bachelor">Bachelor Degree</option>
                       <option value="Course">Course</option>
                       <option value="GovId">Government ID</option>
-        </FormControl>
-        
-      </FormGroup>
-      </Row>
-      <Row>
-    <FormGroup as={Col} md="6" xs="8" controlId="formGridBusMail">
-      <Label>Teacher</Label>
-      <FormControl required type="text" value={this.state.busmail} onChange={this.changeBusMail} placeholder="Tommy Dean"  />
-      
-    </FormGroup>
-  
-    <FormGroup style={{marginLeft:50}} as={Col} md="6" xs="8" controlId="formGridStudentEmail">
-        <Label>Student Email</Label>
-        <FormControl required value={this.state.email} onChange={this.changeEthAddress} >
-        </FormControl>
-        
-      </FormGroup>
-      </Row>
-    <FormGroup  style={{marginLeft:50}}as={Col} md="6" xs="8" controlId="formGridEthAddress">
-      <Label>Attach Course Syllabus</Label>
-      <FormControl required type="text"   />
-      
-    </FormGroup>
-  
-    
+          </select>
+     <div class="invalid-feedback">
+     Please Input Name
+     </div>
+     </div>
+     </div>
+
+     <div class="form-row">
+    <div class="col-md-4 mb-3">
+    <label for="validationCutsom5"> Business </label>
+        <input type="text" id="validationCustom5" class="form-control" value={this.state.business} onChange={this.changeBusMail} placeholder="Bain Labs" required />
+     <div class="invalid-feedback">
+     Please Input Valid Business
+     </div> 
+     </div>  
+     <div class="col-md-4 mb-3">
+    <label for="validationCutsom6"> Student Email </label>
+        <input type="email" class="form-control" id="validationCustom6" value={this.state.email} onChange={this.changeEthAddress} placeholder="15sa54@queensu.ca" required />
+     <div class="invalid-feedback">
+     Please Input Valid Student Email
+     </div> 
+     </div>
+     </div>
+   
       
     <Button id="certbutton" style={{color:'white', marginBottom: 20, marginleft: 100}} type="submit"> 
     
         Next</Button>
     
-  </Form>
+  </form>
   </div>
   
     )

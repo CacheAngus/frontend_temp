@@ -14,11 +14,9 @@ import userHeader from "./userHeader.js";
 import firebase from 'firebase'
 
 
-
-
 class UserTable extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: [
         {
@@ -35,27 +33,56 @@ class UserTable extends Component {
   }
   
   componentDidMount(){
+    var businesses;
+    var emailName;
+    //console.log(this.props);
     var rootRef = firebase.database().ref().child('certificates');
     rootRef.on("child_added", snap=> {
       var cert = snap.child("certificate").val();
       var fname = snap.child("firstName").val();
       var lname = snap.child("lastName").val();
-      var note = snap.child("notes").val();
+      var note = snap.child("Notes").val();
       var us_email = snap.child("email").val();
       var bus_email = snap.child("busmail").val();
-      $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + bus_email + "</td><td>" + us_email + "</td><td>" + note + "</td>" );
-    
-      })
+      var business = snap.child("business").val();
+      var courseDes = snap.child('descr').val();
+
+
+      //check what the type is on the user
+      /*if (firebase.database().ref().child('business').on("value", snap => {
+       emailName= snap.child("email").val();
+      }) === true && this.props.authUser.email === emailName){
+        //have to get this email's business
+        firebase.database().ref().child('business').on("value", snap => {
+          businesses = snap.child("business").val();
+         });
+         if(businesses === bus_email )
+         $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
+      } */
+      if(this.props.authUser.email===bus_email){
+        $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
+      }
+        else
+      //change this if so it reflects the above
+         if(this.props.authUser.email===us_email)
+          $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
+      
+     });
+      
+     
+      
   }
 
   render() {
     let modalClose = () => this.setState({modalShow: false});
 
-  const data = this.state.data;
+
+  console.log(this.props);
     //const {columns} = this.state.column s;
       return (
+      
         <div>
-         <UserModal show={this.state.modalShow} onHide={modalClose}/>
+         <UserModal authUser={this.props.authUser} show={this.state.modalShow} onHide={modalClose}/>
         <div id="create-page">
           <UserPageBanner />
 
@@ -86,9 +113,10 @@ class UserTable extends Component {
                <th>First Name</th>
                <th>Last Name</th>
                <th>Certificate</th>
-               <th>Bussiness</th>
+               <th>Business</th>
                <th>Email</th>
-               <th>Notes</th>
+               <th>Course Name</th>
+               <th>Description</th>
              </tr>
            </thead>
            <tbody>
