@@ -1,0 +1,41 @@
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+
+rule OnlyIssuersCanIssueCertificates {
+    description: "Allow only issuers to create certificates"
+    participant: "org.lockness.certificates.Owner"
+    operation: CREATE
+    resource: "org.lockness.certificates.createCert"
+    condition: (p.issuer.getIdentifier() === true)
+    action: ALLOW
+}
+
+rule OwnerHasFullAccessToTheirAssets {
+    description: "Allow all participants full access to their assets"
+    participant(p): "org.lockness.certificates.Owner"
+    operation: ALL
+    resource(r): "org.lockness.certificates.Certificate"
+    condition: (r.owner.getIdentifier() === p.getIdentifier())
+    action: ALLOW
+}
+
+rule OwnerHasFullAccessToReadAssets {
+    description: "Allow all participants to read their own assets"
+    participant: "org.lockness.certificates.Owner"
+    operation: CREATE
+    resource: "org.lockness.certificates.returnCert"
+    action: ALLOW
+}
