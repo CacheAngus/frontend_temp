@@ -7,7 +7,8 @@ class Home extends Component {
     return (
       <div>
         <div className={`Home__Container`}>
-          <h1>Welcome to Lochness</h1>
+          <h3>Lochness</h3>
+          <h1>Protecting the legitimacy of academics and knowledge</h1>
         </div>
         <div className={`Home__Container2`}>
           <h1>Welcome to Lochness</h1>

@@ -22,18 +22,12 @@ class UserTable extends Component {
     this.state = {
       data: [
         {
-            firstName: "",
-            lastName: "q",
-            busmail: "sef",
-            email: 'ksdjhf',
-            certificate: 'Bachelor of Commerce',
-            notes: 'this guy is a g'
       }
     ],
     modalShow: false
   };
   }
-  
+
   componentDidMount(){
     var rootRef = firebase.database().ref().child('certificates');
     rootRef.on("child_added", snap=> {
@@ -43,8 +37,11 @@ class UserTable extends Component {
       var note = snap.child("notes").val();
       var us_email = snap.child("email").val();
       var bus_email = snap.child("busmail").val();
+      /*TODO see the logic here, adding these values to state if possible so you can access the values later.
+        Can use a javascript / react Map function to generate the element
+      */
       $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + bus_email + "</td><td>" + us_email + "</td><td>" + note + "</td>" );
-    
+
       })
   }
 
@@ -61,7 +58,7 @@ class UserTable extends Component {
 
 
 
-          
+
 
          <div className="container" >
 
@@ -73,7 +70,7 @@ class UserTable extends Component {
                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" >
                Course
           </button>
-          <UserModal show={this.state.modalShow} onHide={modalClose}/> 
+          <UserModal show={this.state.modalShow} onHide={modalClose}/>
              </NavItem>
 
              <NavItem style={{marginLeft:25}}>
@@ -92,10 +89,10 @@ class UserTable extends Component {
              </tr>
            </thead>
            <tbody>
-             
+
            </tbody>
            </Table>
-         
+
       </div>
       </div>
     </div>

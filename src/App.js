@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import './App.css';
 import axios from 'axios';
 import "react-table/react-table.css";
+import './App.css';
 
 import CompanyLogin from './components/Login/loginCompany';
 import UserTable from './components/UserTable/UserTable';
@@ -71,7 +71,7 @@ class App extends Component {
     // form is invalid! so we do nothing
     return;
   }*/
- 
+
   //does this even go in here idk, probably should add in error catching
   /*axios({
     method: 'post',
@@ -110,6 +110,7 @@ class App extends Component {
                 )} />
               <Route path="/create" name="create" component={FormPage} exact/>
               <Route path="/team" name="team" component={TeamPage} exact/>
+              <Route path="/profile/:id" name="profile" compoent={UserTable} />
         </AuthenticationProvider>
       </div>
     </BrowserRouter>
