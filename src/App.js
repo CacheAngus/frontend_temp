@@ -16,7 +16,6 @@ import UserPageBanner from "./components/UserPageBanner/UserPageBanner"
 import SignOut from './components/SignOut/SignOut'
 import { Router, Route, Redirect, IndexRoute} from 'react-router'
 import { BrowserRouter} from 'react-router-dom'
-
 // Login Flow
 
 import firebase from 'firebase'
