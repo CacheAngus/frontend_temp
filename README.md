@@ -23,3 +23,5 @@ Check if it is deployed properly
 
 Starting RESTFul API
 7. composer-rest-server
+
+8. cd my-network && npm i
