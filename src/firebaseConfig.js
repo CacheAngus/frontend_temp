@@ -1,10 +1,4 @@
+import firebase from 'firebase';
+import serviceAccount from './firebaseCredentials.json';
 
-var firebase = require("firebase");
-
-var serviceAccount = require("./firebaseCredentials.json");
-
-firebase.initializeApp(serviceAccount);
-
-var database = firebase.database()
-
-module.exports.database = database
+export default firebase.initializeApp(serviceAccount);
