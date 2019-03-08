@@ -2,7 +2,7 @@
 
 Instant verification of certificates on the blockchain
 
-1. Start up Docker
+1. Start up Docker  
 
 Download network dependencies
 2. ```cd my-network && npm i```
