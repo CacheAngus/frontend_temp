@@ -4,8 +4,8 @@ Instant verification of certificates on the blockchain
 
 1. Start up Docker  
 
-Download network dependencies
-2. ```cd my-network && npm i```
+2. Download network dependencies
+```cd my-network && npm i```
 
 3. Go to fabrc-dev-servers/
 ```./startFabric.sh && ./createPeerAdminCard.sh```
