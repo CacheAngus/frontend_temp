@@ -46,16 +46,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "nyc mocha -t 0 test/*.js && cucumber-js",
     "eject": "react-scripts eject",
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/lockness.bna",
     "pretest": "npm run lint",
-    "lint": "eslint .",
-    "test": "nyc mocha -t 0 test/*.js && cucumber-js"
+    "lint": "eslint ."
   },
   "keywords": [
-  "composer",
-  "composer-network"
+    "composer",
+    "composer-network"
   ],
   "eslintConfig": {
     "extends": "react-app"
