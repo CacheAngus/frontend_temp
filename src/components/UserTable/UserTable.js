@@ -33,8 +33,8 @@ class UserTable extends Component {
   }
   
   componentDidMount(){
-    var businesses;
-    var emailName;
+    /* var businesses;
+    var emailName; */
     //console.log(this.props);
     var rootRef = firebase.database().ref().child('certificates');
     rootRef.on("child_added", snap=> {
@@ -48,24 +48,27 @@ class UserTable extends Component {
       var courseDes = snap.child('descr').val();
 
 
-      //check what the type is on the user
-      /*if (firebase.database().ref().child('business').on("value", snap => {
-       emailName= snap.child("email").val();
-      }) === true && this.props.authUser.email === emailName){
-        //have to get this email's business
-        firebase.database().ref().child('business').on("value", snap => {
-          businesses = snap.child("business").val();
-         });
-         if(businesses === bus_email )
-         $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-      } */
-      if(this.props.authUser.email===bus_email){
-        $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-      }
-        else
-      //change this if so it reflects the above
-         if(this.props.authUser.email===us_email)
+      if(firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> { 
+        if(snapshot.exists()){
+          if(this.props.authUser.email===bus_email)
           $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
+        return true;  
+        }
+      })===true){
+        console.log("Works");
+      }  else if (firebase.database().ref().child("users").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {   
+        if(snapshot.exists()){
+          if(this.props.authUser.email===us_email)
+          $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
+        return true; 
+        }
+      })===true){
+        console.log("User WOrks");
+
+        }else {
+          console.log("Not in database")
+        }
+
       
      });
       

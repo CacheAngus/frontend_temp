@@ -48,6 +48,7 @@ class App extends Component {
     signInFlow: "popup",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
       signInSuccess: () => false
@@ -99,7 +100,7 @@ class App extends Component {
                 )} /> 
               
               <Route path="/team" name="team" component={TeamPage}  exact/>
-            
+              <Route path="/signUp" name="signup" component={SignUp} exact/>
         </AuthenticationProvider>
       </div>
     </BrowserRouter>
