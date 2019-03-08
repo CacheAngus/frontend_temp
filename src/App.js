@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import './App.css';
 import axios from 'axios';
 import "react-table/react-table.css";
+import './App.css';
 
 import CompanyLogin from './components/Login/loginCompany';
 import UserTable from './components/UserTable/UserTable';
@@ -73,7 +73,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className={`App__Container`}>
+        <div id='merri-font' className={`App__Container`}>
           <AuthenticationProvider value={this.state} >
             <NavigationBar />
               {/* <div className="App" style={this.state.appBackground}>*/}

@@ -20,18 +20,12 @@ class UserTable extends Component {
     this.state = {
       data: [
         {
-            firstName: "",
-            lastName: "q",
-            busmail: "sef",
-            email: 'ksdjhf',
-            certificate: 'Bachelor of Commerce',
-            notes: 'this guy is a g'
       }
     ],
     modalShow: false
   };
   }
-  
+
   componentDidMount(){
     /* var businesses;
     var emailName; */
@@ -91,7 +85,7 @@ class UserTable extends Component {
 
 
 
-          
+
 
          <div className="container" >
 
@@ -103,7 +97,7 @@ class UserTable extends Component {
                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" >
                Course
           </button>
-          <UserModal show={this.state.modalShow} onHide={modalClose}/> 
+          <UserModal show={this.state.modalShow} onHide={modalClose}/>
              </NavItem>
 
              <NavItem style={{marginLeft:25}}>
@@ -123,10 +117,10 @@ class UserTable extends Component {
              </tr>
            </thead>
            <tbody>
-             
+
            </tbody>
            </Table>
-         
+
       </div>
       </div>
     </div>
