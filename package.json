@@ -1,6 +1,10 @@
 {
-  "name": "my-app",
+  "engines": {
+    "composer": "^0.20.6"
+  },
+  "name": "lockness",
   "version": "0.1.0",
+  "description": "Instant verification of certificates on the blockchain",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.1.2",
@@ -24,12 +28,35 @@
     "semantic-ui-react": "^0.83.0",
     "start-chrome": "0.0.3"
   },
+  "devDependencies": {
+    "composer-admin": "^0.20.6",
+    "composer-cli": "^0.20.6",
+    "composer-client": "^0.20.6",
+    "composer-common": "^0.20.6",
+    "composer-connector-embedded": "^0.20.6",
+    "composer-cucumber-steps": "^0.20.6",
+    "chai": "latest",
+    "chai-as-promised": "latest",
+    "cucumber": "^2.2.0",
+    "eslint": "latest",
+    "nyc": "latest",
+    "mkdirp": "latest",
+    "mocha": "latest"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/lockness.bna",
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "nyc mocha -t 0 test/*.js && cucumber-js"
   },
+  "keywords": [
+  "composer",
+  "composer-network"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
