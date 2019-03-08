@@ -28,7 +28,7 @@ class NavigationBar extends Component {
                   </Link>
                 </Navbar.Brand>
               </Navbar.Header>
-                {(auth.authUser ? <NavigationAuth /> : <NavigationNoAuth />)}
+                {(auth.authUser ? <NavigationAuth authUser={auth.authUser}/> : <NavigationNoAuth />)}
                 {console.log(auth.authUser)}
                 {console.log('consumer')}
               </Navbar>

@@ -19,8 +19,8 @@ class NavigationAuth extends Component {
             <Navbar.Form pullRight>
                 <Link className="navLink" to="/team">Team</Link>
                 <Link className="navLink" to="/signup"> Sign Up</Link>
-                <Link className="navLink" to="#"><signInEMail/></Link>
-                <Link className="navLink welcome" to="#"><SignIn /> </Link>
+                <Link className="navLink welcome" to="#"><signInEMail/></Link>
+                <Link className="navLink welcome" to="#"><SignIn/> </Link>
             </Navbar.Form>
       </div>
           )
