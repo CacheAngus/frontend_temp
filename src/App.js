@@ -91,7 +91,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className={`App__Container`}>
+        <div id='merri-font' className={`App__Container`}>
           <AuthenticationProvider value={this.state} >
             <NavigationBar />
               {/* <div className="App" style={this.state.appBackground}>*/}
