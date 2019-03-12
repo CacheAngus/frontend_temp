@@ -99,8 +99,16 @@ class App extends Component {
                     )
                 )} /> 
               
+              <Route exact path="/signup"  name="signup" render={() => (
+                  this.state.authUser ? (<FormPage authUser={this.state.authUser} />)
+                    : (
+                      <Redirect to="/" />
+                    )
+                )} /> 
+
               <Route path="/team" name="team" component={TeamPage}  exact/>
-              <Route path="/signUp" name="signup" component={SignUp} exact/>
+              
+              
         </AuthenticationProvider>
       </div>
     </BrowserRouter>
