@@ -1,0 +1,20 @@
+#cert {
+    background-color: rgb(255, 255, 255);
+width: 100%;
+text-align: center;
+}
+.certform {
+   display: inline-block;
+}
+#certbutton {
+    background-color: #449afc;
+    margin-leftt: 100%;
+}
+
+#headpage {
+    height: 20%;
+}
+#validationCustom1 .invalid-feedback{
+    border-color: red;
+}
+

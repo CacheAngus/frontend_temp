@@ -1,0 +1,29 @@
+.create-page {
+    background-color: white;
+    width: 100%;
+    padding-bottom: 20%;
+    margin-top: 0%;
+}
+
+
+.btn btn-link {
+    color: #216EB1;
+}
+.col-xs-4 {
+    color:#216EB1;
+    outline-color: #216EB1;
+}
+.col-xs-8 {
+    color: #216EB1;
+}
+
+.col-xs-12 {
+  color: #216EB1;
+  outline: 1ch;
+  outline-color: #216EB1;;
+}
+
+.modal fade {
+    background-color: aliceblue;
+}
+

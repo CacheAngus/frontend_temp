@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 const {admin} = require('../firebaseConfig.js')
-const {log} = require('./log.js');
+const {log} = require('../firebase/log');
 
 
 
@@ -16,7 +16,7 @@ class Certificates {
             notes: note
         }).catch((err) => console.log(err));
     }
-    
+
     static getCertificate(){
         return admin.database().ref('certificate/').once('value'.then(function(snapshot){
             return snapshot.val() } ))
@@ -31,7 +31,7 @@ static updateCertificate(certid, firstname, lastname, userEmail, certname, busin
         certificate: certname,
         notes: note
     };
-    
+
     var updates = {};
     updates['certificate/' + certid] = certData;
 
@@ -43,3 +43,4 @@ static updateCertificate(certid, firstname, lastname, userEmail, certname, busin
         return admin.database().ref('certificate/' + certid).remove();
     }
 }
+export default Certificates;

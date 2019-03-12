@@ -1,0 +1,24 @@
+.navbar,
+navbar-default {
+    color: 'white';
+    background-color: #216EB1;
+    max-height: 75px;
+    padding: 15px;
+}
+
+.navLink{
+  textDecoration : 'none';
+  padding-left: 20px;
+  color: white;
+  font-size: 20px;
+  display: inline-flex;
+}
+
+.navLink:hover{
+  text-decoration: none;
+  color: white;
+}
+
+.welcome{
+  font-size: 15px;
+}
