@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import {Image, Button} from 'react-bootstrap';
+import {Redirect} from 'react-router';
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 import firebase from 'firebase'
 
@@ -122,6 +123,10 @@ console.log('does it even go here');
         }
     }
     render(){
+      const {isAuthenticated} = this.props;
+      if(isAuthenticated){
+        return <Redirect to='/' />
+      }
         
     return(
       
@@ -192,7 +197,7 @@ console.log('does it even go here');
    
       
 
-    <button id="signupbutton" style={{color:'white', marginBottom: 20, marginleft: 100}}  type="submit"> 
+    <button class="btn btn-primary" style={{ marginBottom: 20, marginleft: 100}}  type="submit"> 
     
         SignUp</button>
     

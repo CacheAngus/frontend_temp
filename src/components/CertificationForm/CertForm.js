@@ -105,7 +105,7 @@ class CertForm extends Component {
       
       
     render(){
-        const {validated} = this.state;
+       
     return(
       
   <div id="cert">
