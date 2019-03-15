@@ -20,22 +20,17 @@ class UserTable extends Component {
     this.state = {
       data: [
         {
-            firstName: "",
-            lastName: "q",
-            busmail: "sef",
-            email: 'ksdjhf',
-            certificate: 'Bachelor of Commerce',
-            notes: 'this guy is a g'
       }
     ],
     modalShow: false
   };
   }
-  
+
   componentDidMount(){
     /* var businesses;
     var emailName; */
     //console.log(this.props);
+
     var rootRef = firebase.database().ref().child('certificates');
     rootRef.on("child_added", snap=> {
       var cert = snap.child("certificate").val();
@@ -48,19 +43,19 @@ class UserTable extends Component {
       var courseDes = snap.child('descr').val();
 
 
-      if(firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> { 
+      if(firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {
         if(snapshot.exists()){
           if(this.props.authUser.email===bus_email)
           $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-        return true;  
+        return true;
         }
       })===true){
         console.log("Works");
-      }  else if (firebase.database().ref().child("users").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {   
+      }  else if (firebase.database().ref().child("users").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {
         if(snapshot.exists()){
           if(this.props.authUser.email===us_email)
           $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-        return true; 
+        return true;
         }
       })===true){
        
@@ -69,11 +64,11 @@ class UserTable extends Component {
          
         }
 
-      
+
      });
-      
-     
-      
+
+
+
   }
 
   render() {
@@ -83,7 +78,7 @@ class UserTable extends Component {
   console.log(this.props);
     //const {columns} = this.state.column s;
       return (
-      
+
         <div>
          <UserModal authUser={this.props.authUser} show={this.state.modalShow} onHide={modalClose}/>
         <div id="create-page">
@@ -91,7 +86,7 @@ class UserTable extends Component {
 
 
 
-          
+
 
          <div className="container" >
 
@@ -103,7 +98,7 @@ class UserTable extends Component {
                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" >
                Course
           </button>
-          <UserModal show={this.state.modalShow} onHide={modalClose}/> 
+          <UserModal show={this.state.modalShow} onHide={modalClose}/>
              </NavItem>
 
              <NavItem style={{marginLeft:25}}>
@@ -123,10 +118,10 @@ class UserTable extends Component {
              </tr>
            </thead>
            <tbody>
-             
+
            </tbody>
            </Table>
-         
+
       </div>
       </div>
     </div>

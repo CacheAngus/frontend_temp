@@ -1,6 +1,10 @@
 {
-  "name": "my-app",
+  "engines": {
+    "composer": "^0.20.6"
+  },
+  "name": "lockness",
   "version": "0.1.0",
+  "description": "Instant verification of certificates on the blockchain",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.1.2",
@@ -8,7 +12,20 @@
     "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "bootstrap": "^4.2.1",
+    "chai": "latest",
+    "chai-as-promised": "latest",
+    "composer-admin": "^0.20.6",
+    "composer-cli": "^0.20.6",
+    "composer-client": "^0.20.6",
+    "composer-common": "^0.20.6",
+    "composer-connector-embedded": "^0.20.6",
+    "composer-cucumber-steps": "^0.20.6",
+    "cucumber": "^2.2.0",
+    "eslint": "latest",
     "firebase": "^5.5.8",
+    "mkdirp": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
     "react": "^16.5.2",
     "react-art": "^16.6.3",
     "react-bootstrap": "^0.32.4",
@@ -17,6 +34,7 @@
     "react-facebook-login": "^4.1.1",
     "react-filterable-table": "^0.3.431",
     "react-firebaseui": "^3.1.2",
+    "react-helmet": "^5.2.0",
     "react-native": "^0.57.4",
     "react-native-web": "^0.9.6",
     "react-router": "^4.3.1",
@@ -32,9 +50,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "nyc mocha -t 0 test/*.js && cucumber-js",
+    "eject": "react-scripts eject",
+    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/lockness.bna",
+    "pretest": "npm run lint",
+    "lint": "eslint ."
   },
+  "keywords": [
+    "composer",
+    "composer-network"
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -20,7 +20,7 @@ class NavigationBar extends Component {
     return(
   <AuthenticationConsumer>
         {auth => (
-          <Navbar bg="dark" variant="dark">
+          <Navbar bg="dark" className="fixed-top" variant="dark">
               <Navbar.Header>
                 <Navbar.Brand>
                   <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />

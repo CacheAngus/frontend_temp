@@ -1,0 +1,50 @@
+namespace org.lockness.certificates
+
+asset Certificate identified by CertificateID {
+  o String CertificateID
+  --> Owner owner
+  --> Owner issuer
+  o String name
+  o String description
+}
+
+participant Owner identified by email {
+  o String email
+  o String firstName
+  o String lastName
+  o Boolean issuer
+}
+
+transaction returnCert {
+  o String owner
+}
+
+transaction createCert {
+  o String CertificateID
+  --> Owner owner
+  o String name
+  o String description
+}
+
+transaction deleteCert {
+  --> Certificate certificate
+}
+
+transaction addOwner{
+  o String firstName
+  o String lastName
+  o String email
+  o Boolean issuer
+}
+
+event AddEvent {
+  --> Certificate certificate
+}
+
+event DelEvent {
+  --> Certificate certificate
+}
+
+event NewOwnerEvent {
+  --> Owner owner
+}
