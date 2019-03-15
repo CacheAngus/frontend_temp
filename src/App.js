@@ -100,7 +100,12 @@ class App extends Component {
                 )} /> 
               
               <Route path="/team" name="team" component={TeamPage}  exact/>
-              <Route path="/signUp" name="signup" component={SignUp} exact/>
+              <Route path="/signUp" name="signup" component={SignUp} exact render={() => (this.state.authUser ? (<FormPage authUser={this.state.authUser} />)
+                    : (
+                      <Redirect to="/signup" />
+                    )
+                )} /> 
+            />
         </AuthenticationProvider>
       </div>
     </BrowserRouter>

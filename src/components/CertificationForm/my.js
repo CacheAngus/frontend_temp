@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $(document).ready(function(){
 var jumboHeight = $('.jumbotron').outerHeight();
 function parallax(){
@@ -10,4 +12,4 @@ $(window).scroll(function(e){
     
 });
 
-}
+})
