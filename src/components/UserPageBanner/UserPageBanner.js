@@ -19,7 +19,7 @@ class UserPageBanner extends Component {
               <AuthenticationConsumer>
                 {(auth) => (
                   <div>
-                    <UserProfilePic />
+                    <UserProfilePic authUser={this.props.authUser}/>
                     <h2 class="displayName">{(auth.authUser ? auth.authUser.displayName : "")}</h2>
                   </div>
                 )}

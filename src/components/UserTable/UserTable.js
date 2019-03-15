@@ -58,10 +58,10 @@ class UserTable extends Component {
         return true;
         }
       })===true){
-        console.log("User WOrks");
+       
 
         }else {
-          console.log("Not in database")
+         
         }
 
 
@@ -82,7 +82,7 @@ class UserTable extends Component {
         <div>
          <UserModal authUser={this.props.authUser} show={this.state.modalShow} onHide={modalClose}/>
         <div id="create-page">
-          <UserPageBanner />
+          <UserPageBanner authUser={this.props.authUser} />
 
 
 
