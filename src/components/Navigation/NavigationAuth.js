@@ -24,11 +24,11 @@ class NavigationAuth extends Component {
 //{this.state.logged && CreatePage}
   componentDidMount(){
  
-  console.log("where we at");
+  
   if (firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {    
     if(snapshot.exists()){
       this.setState({logged: !this.state.logged});
-      console.log("set false", this.state.logged);
+      
       return true; 
     }
   })===true){  
@@ -39,8 +39,7 @@ class NavigationAuth extends Component {
   }
   render(){
    
-    console.log("logged state",this.state.logged);
-    console.log("my email", this.props.authUser.email)
+   
      
      
     return (

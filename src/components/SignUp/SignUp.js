@@ -17,8 +17,9 @@ export default class SignUp extends Component{
             password:"",
             
             account: "",
-            score: 'null',
-            business:""
+            
+            business:"",
+            picture: ''
         }
         
        
@@ -29,6 +30,7 @@ export default class SignUp extends Component{
       this.handleSubmit = this.handleSubmit.bind(this);
       this.changeBusiness = this.changeBusiness.bind(this); 
       this.changePassword = this.changePassword.bind(this);
+      this.changePicture = this.changePicture.bind(this);
     }
     changeLastName(e) {
         this.setState({lastName: e.target.value});
@@ -50,7 +52,10 @@ export default class SignUp extends Component{
               this.setState({password: e.target.value});
   }
 
-  
+  changePicture(e) {
+    this.setState({picture: e.target.value});
+    this.props.authUser.photoURL = this.state.picture;
+  }
 handleSubmit(event){
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -69,7 +74,7 @@ account:this.state.account,
 email:this.state.email,
 business:this.state.business,
 password: this.state.password,
-
+picture: this.state.picture
 }
 var emailCheck = this.state.email;
 var passCheck = this.state.password;
@@ -119,7 +124,8 @@ console.log('does it even go here');
             email: "",
             type: "",
             business:"",
-            password: ""
+            password: "",
+            picture: ""
         }
     }
     render(){
@@ -168,16 +174,17 @@ console.log('does it even go here');
      Please Input Account Type
      </div>
      </div>
-     </div>
-
-     <div class="form-row">
-    <div class="col-md-4 mb-3">
+     <div class="col-md-4 mb-3">
     <label for="validationCutsom5"> Business </label>
         <input type="text" id="validationCustom5" class="form-control" value={this.state.business} onChange={this.changeBusiness} placeholder="Bain Labs" required />
      <div class="invalid-feedback">
      Please Input Valid Business
      </div> 
-     </div>  
+     </div>
+     </div>
+
+     <div class="form-row">
+      
      <div class="col-md-4 mb-3">
     <label for="validationCutsom6"> Email </label>
         <input type="email" class="form-control" id="validationCustom6" value={this.state.email} onChange={this.changeEmail} placeholder="15sa54@queensu.ca" required />
@@ -194,7 +201,16 @@ console.log('does it even go here');
      </div> 
      </div>
      </div>
-   
+   <div class="form-row">
+   <div class="col-md-4 mb-3">
+   <label for="profileControlFile">Profile Picture
+   </label>
+   <input type="file" class="form-control-file" id="profileControlFile" value={this.state.picture} onChange={this.changePicture} required/>
+   <div class='invalid-feedback'>
+   Please Submit a Picture
+   </div> 
+   </div>
+   </div>
       
 
     <button class="btn btn-primary" style={{ marginBottom: 20, marginleft: 100}}  type="submit"> 
