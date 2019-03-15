@@ -6,6 +6,7 @@ import {MenuItem, Navbar, Nav, NavItem,FormGroup, FormControl, Button, NavDropdo
 import SignOut from '../SignOut/SignOut'
 import {AuthenticationConsumer} from '../AuthenticationContext/AuthenticationContext'
 import firebase from 'firebase'
+import Create from './create'
 
 
 
@@ -17,41 +18,38 @@ class NavigationAuth extends Component {
   constructor(props){
     super(props)
     this.state={
-      logged: true,
-      createPage:null
+      logged: false
     }
   }
 //{this.state.logged && CreatePage}
-  componentDIdMount(){
+  componentDidMount(){
  
-  var check=null;
+  console.log("where we at");
   if (firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {    
     if(snapshot.exists()){
       this.setState({logged: !this.state.logged});
-     this.createPage=<Link className="navLink" to='/create'>Create</Link>
+      console.log("set false", this.state.logged);
       return true; 
     }
   })===true){  
-    this.createPage=<Link className="navLink" to='/create'>Create</Link>
+    
    
    } 
-   console.log("create",this.state.createPage);
+   
   }
   render(){
-   var CreatePage =this.createPage;
-console.log("create",CreatePage)
-     /* if(check==="bitch"){
-     this.setState({logged: !this.state.logged});
-       CreatePage=<Link className="navLink" to='/create'>Create</Link>
-    console.log('where', this.state.logged) */
+   
+    console.log("logged state",this.state.logged);
+    console.log("my email", this.props.authUser.email)
+     
      
     return (
       <div>
         <AuthenticationConsumer>
           {(auth) => (
             <Navbar.Form pullRight>
-             
-             <Link className="navLink" to='/create'>Create</Link>
+             {this.state.logged && <Create/>}
+            
       
                  <Link className="navLink" to="/view">View</Link>
                 <Link className="navLink" to="/team">Team</Link>
