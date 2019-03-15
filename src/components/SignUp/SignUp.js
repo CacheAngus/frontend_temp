@@ -143,15 +143,11 @@ console.log('does it even go here');
       console.log('Hyperledger');
     }
     render(){
-<<<<<<< HEAD
 
-=======
       const {isAuthenticated} = this.props;
       if(isAuthenticated){
         return <Redirect to='/' />
       }
-        
->>>>>>> 34a2bbcf90d481e539144dbe2c1167925780bfab
     return(
 
   <div id="cert">
@@ -219,7 +215,6 @@ console.log('does it even go here');
      </div>
      </div>
 
-<<<<<<< HEAD
 
     <button id="signupbutton" style={{color:'white', marginBottom: 20, marginleft: 100}}  type="submit">
         SignUp
@@ -228,12 +223,6 @@ console.log('does it even go here');
     <button id="checkbutton" style={{color:'white', marginBottom: 20, marginleft: 100}}  onClick={this.blah}>
       C H E C K
     </button>
-=======
-    <button class="btn btn-primary" style={{ marginBottom: 20, marginleft: 100}}  type="submit"> 
-    
-        SignUp</button>
-    
->>>>>>> 34a2bbcf90d481e539144dbe2c1167925780bfab
   </form>
   </div>
 
