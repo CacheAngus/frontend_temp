@@ -30,6 +30,7 @@ class UserTable extends Component {
     /* var businesses;
     var emailName; */
     //console.log(this.props);
+
     var rootRef = firebase.database().ref().child('certificates');
     rootRef.on("child_added", snap=> {
       var cert = snap.child("certificate").val();
@@ -42,19 +43,19 @@ class UserTable extends Component {
       var courseDes = snap.child('descr').val();
 
 
-      if(firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> { 
+      if(firebase.database().ref().child("business").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {
         if(snapshot.exists()){
           if(this.props.authUser.email===bus_email)
           $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-        return true;  
+        return true;
         }
       })===true){
         console.log("Works");
-      }  else if (firebase.database().ref().child("users").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {   
+      }  else if (firebase.database().ref().child("users").orderByChild("email").equalTo(this.props.authUser.email).once("value", snapshot=> {
         if(snapshot.exists()){
           if(this.props.authUser.email===us_email)
           $("#data-table").append("<tr><td>" + fname + "</td><td>" + lname +"</td><td>" + cert +"</td><td>" + business + "</td><td>" + us_email + "</td><td>" + note + "</td><td>" + courseDes +"</td></tr>" );
-        return true; 
+        return true;
         }
       })===true){
         console.log("User WOrks");
@@ -63,11 +64,11 @@ class UserTable extends Component {
           console.log("Not in database")
         }
 
-      
+
      });
-      
-     
-      
+
+
+
   }
 
   render() {
@@ -77,7 +78,7 @@ class UserTable extends Component {
   console.log(this.props);
     //const {columns} = this.state.column s;
       return (
-      
+
         <div>
          <UserModal authUser={this.props.authUser} show={this.state.modalShow} onHide={modalClose}/>
         <div id="create-page">
