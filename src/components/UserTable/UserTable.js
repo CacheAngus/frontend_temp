@@ -132,29 +132,7 @@ class UserTable extends Component {
     </div>
 
 
-      //   <ReactTable
-      //     data={data}
-      //     columns={[{
-      //         Header: 'Certificate No',
-      //         accessor: 'certificateNo' // String-based value accessors!
-      //       },
-      //       {
-      //         Header: 'Certificate',
-      //         accessor: 'certificate'
-      //       },
-      //       {
-      //         Header: 'Date Issued',
-      //         accessor: 'date'
-      //       },
-      //       {
-      //         Header: 'Notes',
-      //         accessor: 'notes'
-      //       }]}
-      //     defaultPageSize={10}
-      //     className="-striped -highlight"
-      //   />
-      //   <br />
-      // </div>
+      
     );
   }
 }
