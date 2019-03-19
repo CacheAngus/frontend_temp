@@ -8,11 +8,11 @@ export default class courseOverview extends Component{
   constructor(props){
     super(props);
     this.state={
-      courseName :"",
-      coursedesc:"",
+      courseName:"React Course",
+      coursedesc:"This is a course about react.",
   };
 
-  
+
   }/*
 componentDidMount(){
   firebase.database().ref('certificates').on("child_added", snap =>{
@@ -30,12 +30,12 @@ componentDidMount(){
 /*showCourse(event, $modal, notes){
   var button = $(event.relatedTarget);
   $modal.find('.modal-title').text(firebase.database().ref.child('certificates/' + notes).on("child_added", snap=>{
-    
+
   snap.child("Notes").val();
 
   }));
   $modal.find('.rounded border border-primary col-xs-12 col-md-9').text(firebase.database().ref.child('certificates/'+ notes).on("child_added", snap=>{
-    
+
     snap.child("descr").val();
 
   }));
@@ -46,9 +46,9 @@ componentDidMount(){
   $("#exampleModalLabel").on('show.bs.modal', function(event){
     var note = this.props.authUser.email;
     $modal.find('.modal-title').text(firebase.database().ref.child('certificates/' + notes).on("child_added", snap=>{
-    
+
       snap.child("Notes").val();
-    
+
       }));
   });
   $("#description").on('show.bs.modal', function(event){
@@ -64,12 +64,14 @@ componentDidMount(){
 
 
     render(){
+      console.log(this.props);
+      console.log("print");
         return(
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Class</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">{this.props.name}</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -78,9 +80,9 @@ componentDidMount(){
                 <div class="container-fluid">
                   <div class="row">
                   <div id="modal-img" class="col-xs-4 col-md-3"> <img id="inner-img" src={require('./images/images/lochness.png')} alt="" style={{width:70}} class="rounded border border-light"/></div>
-                  <div id="overview" class="col-xs-8 col-md-9">Course Overview
+                  <div id="overview" class="col-xs-8 col-md-9">
                   <div class="row">
-                  <div id="descrition" class="rounded border border-primary col-xs-12 col-md-9"> Course Description</div>
+                  <div id="descrition" class="rounded border border-primary col-xs-12 col-md-9">{this.props.coursedesc}</div>
                   </div>
                   </div>
                   </div>
