@@ -63,9 +63,14 @@ h3{
         animation: fadein 2s;
 }
 .homeImg{
-  max-width: 80%;
+  max-width: 100%;
   max-height: 90%;
-  margin-top: 20px;
+  padding-top: 120px;
+  
+}
+.img-responsive{
+  width: 100%;
+  background-size: cover;
 }
 .homeIcon{
   width: 100px;

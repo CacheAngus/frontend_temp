@@ -17,17 +17,20 @@ class NavigationBar extends Component {
     return(
   <AuthenticationConsumer>
         {auth => (
-          <Navbar bg="dark" className="fixed-top" variant="dark">
-              <Navbar.Header>
+          <Navbar bg="dark" className="fixed-top" variant="dark" expand="lg">
+              <Navbar.Header class='header'>
                 <Navbar.Brand>
-                  <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
+                  <Link to="/#home" style={{color:'white', fontFamily:'Open Sans', width:40, fontSize:30, marginTop:0}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
                       LOCKNESS
                   </Link>
+                  
                 </Navbar.Brand>
               </Navbar.Header>
-                {(auth.authUser ? <NavigationAuth authUser={auth.authUser}/> : <NavigationNoAuth />)}
+              
+{(auth.authUser ? <NavigationAuth authUser={auth.authUser}/> : <NavigationNoAuth />)}
                 {console.log(auth.authUser)}
                 {console.log('consumer')}
+             
               </Navbar>
 
               )}
