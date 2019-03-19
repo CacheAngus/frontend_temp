@@ -11,10 +11,7 @@ import {AuthenticationConsumer} from '../AuthenticationContext/AuthenticationCon
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 
 class NavigationBar extends Component {
-  constructor(){
-    super()
-  }
-
+ 
   render(){
     //simple session management, pass down the authUser from App.js as a prop
     return(

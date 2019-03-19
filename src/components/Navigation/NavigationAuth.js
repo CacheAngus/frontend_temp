@@ -48,11 +48,9 @@ class NavigationAuth extends Component {
           {(auth) => (
             <Navbar.Form pullRight>
              {this.state.logged && <Create/>}
-            
-      
-                 <Link className="navLink" to="/view">View</Link>
+                <Link className="navLink" to="/view">View</Link>
                 <Link className="navLink" to="/team">Team</Link>
-                <Link className="navLink welcome" to="#">Welcome {(auth.authUser.displayName ? auth.authUser.displayName.split(" ")[0] + " ": "")}<SignOut /> </Link>
+                <SignOut /> 
             </Navbar.Form>
           )}
         </AuthenticationConsumer>

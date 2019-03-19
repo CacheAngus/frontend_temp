@@ -9,9 +9,15 @@ navbar-default {
 .navLink{
   textDecoration : 'none';
   padding-left: 20px;
+  font-family: "Open Sans", serif;
   color: white;
   font-size: 20px;
   display: inline-flex;
+  vertical-align: middle; 
+}
+
+.navItem {
+  padding-right: 20px;
 }
 
 .navLink:hover{
@@ -21,4 +27,15 @@ navbar-default {
 
 .welcome{
   font-size: 15px;
+}
+.firebaseui-idp-list {
+  display: flex;
+}
+.firebaseui-list-item {
+  margin-bottom: 0 !important;
+  margin-left: 10px !important;
+}
+
+.fixed-top {
+  padding: 0rem 1rem !important;
 }
