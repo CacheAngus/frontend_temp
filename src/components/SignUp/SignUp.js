@@ -4,7 +4,7 @@ import {Image, Button} from 'react-bootstrap';
 import {Redirect} from 'react-router';
 // style={{ textDecoration: 'none', paddingRight:'220px', color:'black'}}>
 import firebase from 'firebase'
-
+import axios from "axios"
 
 
 export default class SignUp extends Component{
@@ -20,14 +20,14 @@ export default class SignUp extends Component{
             picture: '',
             
         }
-        
-       
+
+
         this.changeFirstName = this.changeFirstName.bind(this);
       this.changeLastName = this.changeLastName.bind(this);
       this.changeEmail = this.changeEmail.bind(this);
       this.changeType = this.changeType.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.changeBusiness = this.changeBusiness.bind(this); 
+      this.changeBusiness = this.changeBusiness.bind(this);
       this.changePassword = this.changePassword.bind(this);
       this.changePicture = this.changePicture.bind(this);
     }
@@ -37,13 +37,13 @@ export default class SignUp extends Component{
 
  changeFirstName(e) {
           this.setState({firstName: e.target.value});
-          }  
+          }
   changeEmail(e) {
             this.setState({email: e.target.value});
-            } 
+            }
    changeBusiness(e) {
               this.setState({business: e.target.value});
-              } 
+              }
   changeType(e) {
               this.setState({account: e.target.value});
               }
@@ -51,10 +51,14 @@ export default class SignUp extends Component{
               this.setState({password: e.target.value});
   }
 
+
   changePicture(e) {
     this.setState({picture: e.target.value});
     this.props.authUser.photoURL = this.state.picture;
   }
+
+
+
 handleSubmit(event){
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -64,9 +68,9 @@ handleSubmit(event){
 
         this.setState({ validated: true
         });
- 
+
 var data = {
-  
+
 firstName: this.state.firstName,
 lastName:this.state.lastName,
 account:this.state.account,
@@ -79,7 +83,7 @@ var emailCheck = this.state.email;
 var passCheck = this.state.password;
 
 var errorCode;
- 
+
 if(this.state.account==="Business"){
   var refSrc = firebase.database().ref('business/');
   refSrc.push(data);
@@ -97,7 +101,7 @@ firebase.auth().createUserWithEmailAndPassword(emailCheck, passCheck).catch(func
   }else {
     alert(errorMessage);
   }
-  
+
 });
 /*
 console.log(errorCode)
@@ -105,17 +109,33 @@ console.log(errorCode)
 firebase.auth().currentUser.sendEmailVerification().then(function() {
   // Email Verification sent!
   // [START_EXCLUDE]
-  
+
   // [END_EXCLUDE]
 });
 // [END sendemailverification]
 */
 
-  
+
 
 console.log('does it even go here');
 
 
+        axios
+          .post("http://localhost:3000/api/addOwner",
+            {
+              "$class": "org.lockness.certificates.addOwner",
+              "firstName": this.state.firstName,
+              "lastName": this.state.lastName,
+              "email": this.state.email,
+              "issuer": true,
+              "timestamp": "2019-03-15T23:37:09.449Z"
+            }
+          )
+          .then(res=>{
+            console.log(res);
+          })
+
+        console.log('Hyperledger');
 
         this.setState={
             firstName: "",
@@ -129,16 +149,19 @@ console.log('does it even go here');
         }
   
     }
+
+    blah(){
+      console.log('Hyperledger');
+    }
     render(){
-              
     return(
-      
+
   <div id="cert">
-  
+
   <div class="bg"></div>
   <div class="jumbotron text-center" md="6" xs="8" id="headPage" style={{color:'black', fontSize: 50}}><h1 id="bottom">Sign Up</h1></div>
     <form class="signupform"
-    
+
     novalidate
     onSubmit = {e => this.handleSubmit(e)}>
     <div class="form-row">
@@ -147,25 +170,25 @@ console.log('does it even go here');
         <input type="text" class="form-control" id="validationCustom1"  value={this.state.firstName} onChange={this.changeFirstName} placeholder="Cache" required />
      <div class="invalid-feedback">
      Please Input Name
-     </div> 
-     </div>  
+     </div>
+     </div>
      <div class="col-md-4 mb-3">
     <label for="validationCutsom2"> Last Name </label>
         <input class="form-control" type="text" id="validationCustom2" value={this.state.lastName} onChange={this.changeLastName} placeholder="Angus" required />
      <div class="invalid-feedback">
      Please Input Name
-     </div> 
+     </div>
      </div>
      </div>
      <div class="form-row">
-        
+
     <div class="col-md-4 mb-3">
     <label for="validationCutsom4"> User Type </label>
         <select class="form-control" id="validationCustom4" value={this.state.account} onChange={this.changeType} required >
           <option selected>Choose</option>
            <option value="Business">Business</option>
                       <option value="Student">Student</option>
-                     
+
           </select>
      <div class="invalid-feedback">
      Please Input Account Type
@@ -176,18 +199,23 @@ console.log('does it even go here');
         <input type="text" id="validationCustom5" class="form-control" value={this.state.business} onChange={this.changeBusiness} placeholder="Bain Labs" required />
      <div class="invalid-feedback">
      Please Input Valid Business
+
      </div> 
      </div>
      </div>
 
      <div class="form-row">
       
+
+     </div>
+     </div>
+
      <div class="col-md-4 mb-3">
     <label for="validationCutsom6"> Email </label>
         <input type="email" class="form-control" id="validationCustom6" value={this.state.email} onChange={this.changeEmail} placeholder="15sa54@queensu.ca" required />
      <div class="invalid-feedback">
      Please Input Valid Student Email
-     </div> 
+     </div>
      </div>
      <div class="col-md-4 mb-3">
     <label for="validationCutsom6"> Password </label>
@@ -195,9 +223,9 @@ console.log('does it even go here');
         <small id="passwordHelpBlock" class="form-text text-muted"> Your Password must be 8-20 characters long</small>
      <div class="invalid-feedback">
      Please Input a Password
-     </div> 
      </div>
      </div>
+
    <div class="form-row">
    <div class="col-md-4 mb-3">
    <label for="profileControlFile">Profile Picture
@@ -210,13 +238,20 @@ console.log('does it even go here');
    </div>
       
 
-    <button class="btn btn-primary" style={{ marginBottom: 20, marginleft: 100}}  type="submit"> 
-    
-        SignUp</button>
-    
+     </div>
+
+
+
+    <button id="signupbutton" style={{color:'white', marginBottom: 20, marginleft: 100}}  type="submit">
+        SignUp
+    </button>
+
+    <button id="checkbutton" style={{color:'white', marginBottom: 20, marginleft: 100}}  onClick={this.blah}>
+      C H E C K
+    </button>
   </form>
   </div>
-  
+
     )
     }
 

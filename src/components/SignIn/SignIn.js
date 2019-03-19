@@ -5,6 +5,9 @@ import { Image, Button} from 'react-bootstrap';
 import firebase from 'firebase'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 class SignIn extends Component {
+  componentDidMount(){
+    console.log("HI");
+  }
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
