@@ -22,7 +22,8 @@ class UserProfilePic extends Component {
           console.log(photoURL);
           if(photoURL != null){   
              users.updateProfile({
-               photoURL: snap.child('picture').val()
+               photoURL: snap.child('picture').val(),
+               displayName: snap.child('firstName').val()
              })
           }
         }
