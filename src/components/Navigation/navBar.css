@@ -9,6 +9,7 @@ navbar-default {
 .navLink{
   textDecoration : 'none';
   padding-left: 20px;
+  font-family: "Open Sans", serif;
   color: white;
   font-size: 20px;
   display: inline-flex;
