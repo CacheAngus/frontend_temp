@@ -69,7 +69,7 @@ componentDidMount(){
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Class</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">{this.props.name}</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -80,7 +80,7 @@ componentDidMount(){
                   <div id="modal-img" class="col-xs-4 col-md-3"> <img id="inner-img" src={require('./images/images/lochness.png')} alt="" style={{width:70}} class="rounded border border-light"/></div>
                   <div id="overview" class="col-xs-8 col-md-9">Course Overview
                   <div class="row">
-                  <div id="descrition" class="rounded border border-primary col-xs-12 col-md-9"> Course Description</div>
+                  <div id="descrition" class="rounded border border-primary col-xs-12 col-md-9"> {this.props.coursedesc}</div>
                   </div>
                   </div>
                   </div>
