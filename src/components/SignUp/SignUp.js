@@ -15,11 +15,10 @@ export default class SignUp extends Component{
             lastName: "",
             email: "",
             password:"",
-            
             account: "",
-            
             business:"",
-            picture: ''
+            picture: '',
+            
         }
         
        
@@ -110,7 +109,7 @@ firebase.auth().currentUser.sendEmailVerification().then(function() {
   // [END_EXCLUDE]
 });
 // [END sendemailverification]
-}*/
+*/
 
   
 
@@ -125,15 +124,13 @@ console.log('does it even go here');
             type: "",
             business:"",
             password: "",
-            picture: ""
+            picture: "",
+            
         }
+  
     }
     render(){
-      const {isAuthenticated} = this.props;
-      if(isAuthenticated){
-        return <Redirect to='/' />
-      }
-        
+              
     return(
       
   <div id="cert">
