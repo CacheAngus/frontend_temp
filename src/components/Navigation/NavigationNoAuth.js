@@ -20,7 +20,7 @@ class NavigationAuth extends Component {
                 <Link className="navLink" to="/team">Team</Link>
                 <Link className="navLink" to="/signup"> Sign Up</Link>
                 <Link className="navLink welcome" to="#"><SignInEmail/></Link>
-                <Link className="navLink welcome" to="#"><SignIn/> </Link>
+                {/* <Link className="navLink welcome" to="#"><SignIn/> </Link> */}
             </Navbar.Form>
       </div>
           )

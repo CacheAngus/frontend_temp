@@ -28,3 +28,14 @@ navbar-default {
 .welcome{
   font-size: 15px;
 }
+.firebaseui-idp-list {
+  display: flex;
+}
+.firebaseui-list-item {
+  margin-bottom: 0 !important;
+  margin-left: 10px !important;
+}
+
+.fixed-top {
+  padding: 0rem 1rem !important;
+}
