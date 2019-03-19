@@ -3,10 +3,11 @@ import SignIn from '../SignIn/SignIn';
 import {AuthenticationConsumer} from '../AuthenticationContext/AuthenticationContext'
 import './home.css';
 import exams from '../../assets/exams.svg';
-import folder from '../../assets/folder.svg';
-import checkmark from '../../assets/check-mark.svg';
-import share from '../../assets/share.svg';
+import folder from '../../assets/upload.svg';
+import checkmark from '../../assets/coding.svg';
+import share from '../../assets/interview.svg';
 import launch from '../../assets/launch.svg'
+import first from './undraw_hire_te5y.svg'
 class Home extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ class Home extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12 col-sm-6">
-              <img className="img-responsive homeImg fadein" src="https://images.unsplash.com/photo-1513127971914-6a8656fc9718?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80"/>
+              <img className="img-responsive homeImg fadein" src={first}/>
             </div>
             <div className="col-12 col-sm-6">
               <h1 className='fadein homehead'>Your passport for online certificates.</h1>

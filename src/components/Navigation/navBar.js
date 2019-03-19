@@ -20,7 +20,7 @@ class NavigationBar extends Component {
           <Navbar bg="dark" className="fixed-top" variant="dark">
               <Navbar.Header>
                 <Navbar.Brand>
-                  <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lochness.png')} style={{width:70}} />
+                  <Link to="/#home" style={{color:'white'}}><img src={require('./images/images/lockness.png')} style={{width:90, paddingBottom:5}} />
                       LOCKNESS
                   </Link>
                 </Navbar.Brand>
