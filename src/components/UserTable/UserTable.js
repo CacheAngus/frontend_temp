@@ -90,17 +90,15 @@ class UserTable extends Component {
          <div className="container" >
 
            <Nav id="navTabs" pullRight variant="tabs" style={{paddingTop: 50}}>
-             <NavItem>
-               <Link to="/view"> Recent
-             </Link></NavItem>
-             <NavItem>
-               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" >
-               Course
-          </button>
-          <UserModal show={this.state.modalShow} onHide={modalClose}/>
+            <NavItem class='navItem'>
+               <Link to="/view"> Recent</Link>
+            </NavItem>
+             <NavItem class='navItem'>
+                <button type="button" id='' class="btn-link" data-toggle="modal" data-target="#exampleModal" >Course</button>
+                <UserModal show={this.state.modalShow} onHide={modalClose}/>
              </NavItem>
 
-             <NavItem style={{marginLeft:25}}>
+             <NavItem class='navItem'>
                <Link to="/certificate">Certificate</Link>
            </NavItem>
            </Nav>

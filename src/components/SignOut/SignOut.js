@@ -6,10 +6,13 @@ import { Image, Button} from 'react-bootstrap';
 import firebase from 'firebase'
 
 class SignOut extends Component {
+  signOut() {
+    firebase.auth().signOut()
+  }
   render(){
     //simple session management, pass down the authUser from App.js as a prop
     return(
-      <button className='btn btn-primary' onClick={() => firebase.auth().signOut()}>Sign out!</button>
+      <button id='signout-button' className='btn btn-primary' onClick={() => this.signOut()}>Sign out!</button>
     )}
 }
 
